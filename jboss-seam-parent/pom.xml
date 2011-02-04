@@ -7,11 +7,38 @@
   <name>jboss-seam-parent</name>
   <version>2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
-
+  
+  <licenses>
+  	<license>  		
+  		<name>LGPL</name>
+  		<url>http://www.fsf.org/licenses/licenses.html#LGPL</url>
+  	</license>
+  </licenses>
+  
+   <developers>
+      <developer>
+         <name>JBoss Seam committers</name>
+      </developer>
+   </developers>
+  
+  <mailingLists>
+  	<mailingList>
+  		<archive>http://lists.jboss.org/pipermail/seam-dev/</archive>
+  		<name>Seam Developer List</name>  		
+  	</mailingList>
+  </mailingLists>
+  <description>Java EE 5 framework to get easy  developing Java Enterprise applications</description>
   <url>http://seamframework.org/Seam2</url>
 
   <properties>
+  	<!-- General properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <seam.docbook.version>1.1.0.GA</seam.docbook.version>
+    <jbossorg.docbook.version>1.1.0</jbossorg.docbook.version>
+    <pdf.name>${project.artifactId}.pdf</pdf.name>
+    
+    <!-- Version string properties -->
     <version.richfaces>3.3.3.Final</version.richfaces>
     <version.wicket>1.3.5.jboss1</version.wicket>
     <version.drools>5.0.1</version.drools>
@@ -19,7 +46,16 @@
     <version.resteasy>2.0-beta-2</version.resteasy>
     <version.spring>2.5.6.SEC02</version.spring>
     <version.seam>2.3-SNAPSHOT</version.seam>
+    
+       <!-- ***************** -->
+      <!-- Repository Deployment URLs -->
+      <!-- ***************** -->
+      <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
+      <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
+      <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
   </properties>
+  
+  
  <dependencyManagement>
     <!-- 
       Used to specify which version of a dependency to use - this means that
@@ -1307,7 +1343,58 @@
     </dependencies>
   </dependencyManagement>
   
-  <build>
+ <issueManagement>
+ 	<system>JIRA</system>
+ 	<url>http://issues.jboss.org/browse/JBSEAM</url>
+ </issueManagement>
+ <ciManagement>
+ 	<system>Hudson</system>
+ 	<url>http://hudson.jboss.org/hudson/view/Seam/</url>
+ </ciManagement>
+ 
+ <scm>
+ 	<connection>scm:git:git://github.com/mareknovotny/seam-revisited</connection>
+ 	<developerConnection>scm:git:git://github.com/mareknovotny/seam-revisited</developerConnection>
+ 	<url>https://github.com/mareknovotny/seam-revisited</url>
+ </scm>
+ 
+ <organization>
+ 	<name>Seam Framework</name>
+ 	<url>http://seamframework.org</url>
+ </organization>
+ 
+ 
+ <distributionManagement>
+    <repository>
+       <id>jboss-releases-repository</id>
+       <name>JBoss Releases Repository</name>
+       <url>${jboss.releases.repo.url}</url>
+    </repository>
+    <snapshotRepository>
+       <id>jboss-snapshots-repository</id>
+       <name>JBoss Snapshots Repository</name>
+       <url>${jboss.snapshots.repo.url}</url>
+    </snapshotRepository>
+ </distributionManagement>
+ 
+ <build>
+ 	<plugins>
+ 		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                     <goal>jar</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+ 	</plugins>
+ 	
+ 	<defaultGoal>package</defaultGoal>
+    
     <pluginManagement>
       <plugins>
         <!--
@@ -1315,18 +1402,27 @@
             2006-12-03
             See http://news.gmane.org/gmane.comp.apache.maven.announce
         -->
-
         <!-- Building -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>2.1.1</version>
+          <version>2.4.1</version>
         </plugin>
         
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>2.2</version>
+        </plugin>
+        
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-release-plugin</artifactId>
+           <configuration>
+              <arguments>-Drelease </arguments>
+              <autoVersionSubmodules>true</autoVersionSubmodules>
+           </configuration>
+           <version>2.0-beta-9</version>
         </plugin>
         
         <plugin>
@@ -1338,11 +1434,15 @@
             <target>1.5</target>
           </configuration>
         </plugin>
-        
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>2.6</version>
+         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.4.3</version>
+          <version>2.6</version>
         </plugin>
         
         <plugin>
@@ -1355,7 +1455,35 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>2.1</version>
+          <version>2.3.1</version>
+          <configuration>
+		<archive>
+		  <manifestEntries>
+		     <Implementation-URL>${project.url}</Implementation-URL>
+		     <Implementation-Title>${project.name}</Implementation-Title>
+		     <Implementation-Version>${maven.build.timestamp}</Implementation-Version>
+		     <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+		     <Specification-Title>${project.name}</Specification-Title>
+		     <Specification-Version>${parsedVersion.osgiVersion}</Specification-Version>
+		     <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+		  </manifestEntries>
+		  <manifestSections>
+		     <manifestSection>
+			<name>Build-Information</name>
+			<manifestEntries>
+			   <Maven-Version>${maven.version}</Maven-Version>
+			   <Java-Version>${java.version}</Java-Version>
+			   <Java-Vendor>${java.vendor}</Java-Vendor>
+			   <Os-Name>${os.name}</Os-Name>
+			   <Os-Arch>${os.arch}</Os-Arch>
+			   <Os-Version>${os.version}</Os-Version>
+			   <SCM>r${buildNumber}</SCM>
+			   <Build-Time>${maven.build.timestamp}</Build-Time>
+			</manifestEntries>
+		     </manifestSection>
+		  </manifestSections>
+		</archive>
+		</configuration>
         </plugin>
         
         <plugin>
@@ -1374,28 +1502,70 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.1</version>
+          <version>2.3.1</version>
         </plugin>
         
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.2.1</version>
+          <version>2.5</version>
+        </plugin>
+        
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-assembly-plugin</artifactId>
+           <version>2.2-beta-5</version>
+           <executions>
+              <execution>
+                 <id>distribution</id>
+                 <phase>package</phase>
+                 <goals>
+                    <goal>single</goal>
+                 </goals>
+                 <configuration>
+                    <descriptors>
+                       <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                    <finalName>${project.build.finalName}-${project.version}</finalName>
+                 </configuration>
+              </execution>
+           </executions>
+        </plugin>
+        
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-site-plugin</artifactId>
+           <version>2.0.1</version>
         </plugin>
         
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.4</version>
+          <version>2.7</version>
+          <configuration>
+	          <stylesheetfile>jdstyle.css</stylesheetfile>
+	          <doctitle>JBoss Seam API ${project.version}</doctitle> <!-- Used by javadoc:javadoc goal -->
+	          <testDoctitle>JBoss Seam Test API ${project.version}</testDoctitle> <!-- Used by javadoc:test-javadoc goal -->
+          </configuration>
         </plugin>
+		
         <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<configuration>
-				<source>1.5</source>
-				<target>1.5</target>
-			</configuration>
-		</plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.1-beta-1</version>
+            <inherited>true</inherited>
+            <configuration>
+               <failOnMissingWebXml>false</failOnMissingWebXml>
+               <warName>${project.build.finalName}</warName>
+            </configuration>
+         </plugin>
+		
+		<plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-ear-plugin</artifactId>
+           <version>2.4.2</version>
+        </plugin>
+		
         <plugin>
         	<groupId>org.apache.maven.plugins</groupId>
         	<artifactId>maven-ejb-plugin</artifactId>
@@ -1404,11 +1574,287 @@
           		<ejbVersion>3.0</ejbVersion>
         	</configuration>
         </plugin>
+        
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-eclipse-plugin</artifactId>
+            <configuration>
+               <classpathContainers>
+                  <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+               </classpathContainers>
+            </configuration>
+         </plugin>
+        
+         <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-maven-plugin</artifactId>
+            <version>1.3.2.1</version>
+            <configuration>
+               <nexusUrl>https://repository.jboss.org/nexus</nexusUrl>
+               <serverAuthId>jboss-releases-repository</serverAuthId>
+            </configuration>
+         </plugin>
+        <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>jboss-maven-plugin</artifactId>
+           <version>1.4</version>
+        </plugin>
+        <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>emma-maven-plugin</artifactId>
+           <version>1.0-alpha-2</version>
+        </plugin>
+        <plugin>
+           <groupId>org.sonatype.maven.plugin</groupId>
+           <artifactId>emma4it-maven-plugin</artifactId>
+           <version>1.3</version>
+        </plugin>
+        <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>findbugs-maven-plugin</artifactId>
+           <version>2.3.1</version>
+           <configuration>
+              <effort>Max</effort>
+              <threshold>Low</threshold>
+              <xmlOutput>true</xmlOutput>
+              <failOnError>false</failOnError>
+           </configuration>
+           <executions>
+              <execution>
+                 <goals>
+                    <goal>check</goal>
+                 </goals>
+              </execution>
+           </executions>
+        </plugin>
+        
+        <plugin>
+          <groupId>org.codehaus.cargo</groupId>
+          <artifactId>cargo-maven2-plugin</artifactId>
+          <version>1.0.1</version>
+       </plugin>
+       <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>selenium-maven-plugin</artifactId>
+          <version>1.0.1</version>
+       </plugin>
+   
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-plugin</artifactId>
+            <version>1.4</version>
+         </plugin>
+   
       </plugins>
     </pluginManagement>
   </build>
+  
+     <profiles>
+      <profile>
+         <id>release</id>
+         <activation>
+            <property>
+               <name>release</name>
+            </property>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-gpg-plugin</artifactId>
+                  <configuration>
+                     <passphrase>${gpg.passphrase}</passphrase>
+                     <useAgent>${gpg.useAgent}</useAgent>
+                  </configuration>
+                  <executions>
+                     <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                           <goal>sign</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+               <plugin>
+                  <groupId>org.sonatype.plugins</groupId>
+                  <artifactId>nexus-maven-plugin</artifactId>
+                  <configuration>
+                     <auto>true</auto>
+                     <description>[nexus-maven-plugin] closing
+                        repository after release:perform</description>
+                  </configuration>
+               </plugin>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>buildnumber-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>validate-scm</id>
+                        <goals>
+                           <goal>create</goal>
+                        </goals>
+                        <!-- Disabled, doesn't support git -->
+                        <phase>none</phase>
+                        <configuration>
+                           <doUpdate>true</doUpdate>
+                           <doCheck>true</doCheck>
+                        </configuration>
+                     </execution>
+                  </executions>
+                  <inherited>true</inherited>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>distribution</id>
+         <activation>
+            <property>
+               <name>dist</name>
+            </property>
+         </activation>
+         <properties>
+            <!-- Skip failing tests when building dist -->
+            <maven.test.failure.ignore>true</maven.test.failure.ignore>
+         </properties>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>javadoc</id>
+                        <phase>package</phase>
+                        <goals>
+                           <goal>jar</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-deploy-plugin</artifactId>
+                  <configuration>
+                     <skip>${maven.deploy.skip}</skip>
+                  </configuration>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <id>code-coverage</id>
+         <activation>
+            <property>
+               <name>code-coverage</name>
+            </property>
+         </activation>
+         <build>
+            <pluginManagement>
+               <plugins>
+                  <plugin>
+                     <groupId>org.codehaus.mojo</groupId>
+                     <artifactId>emma-maven-plugin</artifactId>
+                     <executions>
+                        <execution>
+                           <id>instrumentation</id>
+                           <phase>process-classes</phase>
+                           <goals>
+                              <goal>instrument</goal>
+                           </goals>
+                           <configuration>
+                              <verbose>true</verbose>
+                           </configuration>
+                        </execution>
+                        <execution>
+                           <id>instrumentation-clean</id>
+                           <phase>clean</phase>
+                           <goals>
+                              <goal>clean</goal>
+                           </goals>
+                        </execution>
+                     </executions>
+                  </plugin>
+
+                  <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-surefire-plugin</artifactId>
+                     <inherited>true</inherited>
+                     <configuration>
+                        <forkMode>once</forkMode>
+                        <classesDirectory>${project.build.directory}/generated-classes/emma/classes</classesDirectory>
+                     </configuration>
+                  </plugin>
+
+                  <plugin>
+                     <groupId>org.sonatype.maven.plugin</groupId>
+                     <artifactId>emma4it-maven-plugin</artifactId>
+                     <executions>
+                        <execution>
+                           <id>report</id>
+                           <phase>test</phase>
+                           <goals>
+                              <goal>report</goal>
+                           </goals>
+                           <configuration>
+                              <sourceSets>
+                                 <sourceSet>
+                                    <directory>${project.build.sourceDirectory}</directory>
+                                 </sourceSet>
+                              </sourceSets>
+                           </configuration>
+                        </execution>
+                     </executions>
+                  </plugin>
+               </plugins>
+            </pluginManagement>
+         </build>
+      </profile>
+      <profile>
+         <id>jboss-public-repository</id>
+         <activation>
+            <property>
+               <name>jboss-public-repository</name>
+               <value>!false</value>
+            </property>
+         </activation>
+         <repositories>
+            <repository>
+               <id>jboss-public-repository-group</id>
+               <name>JBoss Public Maven Repository Group</name>
+               <url>http://repository.jboss.org/nexus/content/groups/public</url>
+               <releases>
+                  <enabled>true</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </snapshots>
+            </repository>
+         </repositories>
+         <pluginRepositories>
+            <pluginRepository>
+               <id>jboss-public-repository-group</id>
+               <name>JBoss Public Maven Repository Group</name>
+               <url>http://repository.jboss.org/nexus/content/groups/public</url>
+               <releases>
+                  <enabled>true</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </snapshots>
+            </pluginRepository>
+         </pluginRepositories>
+      </profile>
+   </profiles>
+   
   <dependencies>
   </dependencies>
+  
   <modules>
   	<module>jboss-seam-ui</module>
   	<module>jboss-seam-debug</module>
@@ -1423,5 +1869,8 @@
   	<module>jboss-seam-ioc</module>
   	<module>jboss-seam-jul</module>
   	<module>jboss-seam</module>
+  	<module>jboss-seam-reference-guide</module>
   </modules>
+  
+  
 </project>
