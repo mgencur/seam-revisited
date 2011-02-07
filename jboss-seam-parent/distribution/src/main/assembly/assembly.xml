@@ -4,7 +4,6 @@
    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/2.2 http://maven.apache.org/xsd/assembly-2.2.xsd">
 
    <id>distribution</id>
-   <finalName>jboss-seam-${version.seam}</finalName>
    <formats>
       <format>dir</format>
    </formats>
@@ -17,8 +16,10 @@
          <directory>src/main/assembly</directory>
          <outputDirectory>.</outputDirectory>
          <includes>
-            <include>readme.txt</include>
-            <include>lgpl.txt</include>
+            <include>*.txt</include>
+<!-- <include>lgpl.txt</include>
+            <include>copyright.txt</include>
+            <include>changelog.txt</include> -->            
          </includes>
       </fileSet>
    </fileSets>
