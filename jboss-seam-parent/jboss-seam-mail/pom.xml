@@ -13,10 +13,6 @@
 	<version>${version.seam}</version>
 	<packaging>jar</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.jboss.seam</groupId>
@@ -71,7 +67,6 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<type>jar</type>
 			<classifier>jdk15</classifier>
 			<scope>test</scope>
 		</dependency>

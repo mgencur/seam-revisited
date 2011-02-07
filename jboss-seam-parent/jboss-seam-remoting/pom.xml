@@ -10,12 +10,9 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-remoting</artifactId>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-	
 	<name>jboss-seam-remoting</name>
+	
+	
 	<dependencies>
 
 		<dependency>

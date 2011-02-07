@@ -62,7 +62,12 @@
       versions are only specified here, not in sub project poms.
       All dependencies for all modules should be listed out here -->
     <dependencies>
-    
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>distribution</artifactId>
+        <version>${version.seam}</version>
+      </dependency>
+      
      <!-- All Seam modules -->
       <dependency>
         <groupId>org.jboss.seam</groupId>
@@ -130,7 +135,31 @@
         <artifactId>jboss-seam-jul</artifactId>
         <version>${version.seam}</version>
       </dependency>    
+      
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>jboss-seam-flex</artifactId>
+        <version>${version.seam}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>jboss-seam-excel</artifactId>
+        <version>${version.seam}</version>
+      </dependency>
 
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>jboss-seam-rss</artifactId>
+        <version>${version.seam}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>jboss-seam-wicket</artifactId>
+        <version>${version.seam}</version>
+      </dependency>
+            
       <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
@@ -496,7 +525,6 @@
         <version>3.2</version>
       </dependency>
       
-      <!-- Should be 1.0.5.GA-jboss, to be in sync with AS but doesn't exist in Maven -->
       <dependency>
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
@@ -574,12 +602,12 @@
 			<groupId>net.sourceforge.jexcelapi</groupId>
 			<artifactId>jxl</artifactId>
 			<version>2.6.8-seam</version>
-         <exclusions>
-           <exclusion>
-             <groupId>log4j</groupId>
-             <artifactId>log4j</artifactId>
-           </exclusion>
-         </exclusions>
+		       <exclusions>
+		         <exclusion>
+		           <groupId>log4j</groupId>
+		           <artifactId>log4j</artifactId>
+		         </exclusion>
+		       </exclusions>
 		</dependency>
 		
 		<dependency>
@@ -604,7 +632,7 @@
              <artifactId>commons-codec</artifactId>
            </exclusion>		   
          </exclusions>
-                </dependency>		
+     </dependency>		
       
       <dependency>
         <groupId>javassist</groupId>
@@ -1241,8 +1269,6 @@
          <artifactId>wicket-datetime</artifactId>
          <version>${version.wicket}</version>
       </dependency>
-
-		  
       
       <dependency>
          <groupId>org.hibernate</groupId>
@@ -1333,24 +1359,18 @@
       	<artifactId>testng</artifactId>
       	<version>5.9</version>
       	<classifier>jdk15</classifier>
-      	<exclusions>
-      		<exclusion>
-      			<artifactId>junit</artifactId>
-      			<groupId>junit</groupId>
-      		</exclusion>
-      	</exclusions>
       </dependency>
     </dependencies>
   </dependencyManagement>
   
- <issueManagement>
- 	<system>JIRA</system>
- 	<url>http://issues.jboss.org/browse/JBSEAM</url>
- </issueManagement>
- <ciManagement>
- 	<system>Hudson</system>
- 	<url>http://hudson.jboss.org/hudson/view/Seam/</url>
- </ciManagement>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>http://issues.jboss.org/browse/JBSEAM</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://hudson.jboss.org/hudson/view/Seam/</url>
+	</ciManagement>
  
  <scm>
  	<connection>scm:git:git://github.com/mareknovotny/seam-revisited</connection>
@@ -1391,6 +1411,63 @@
                </execution>
             </executions>
          </plugin>
+        <!-- Packaging -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.3.1</version>
+          <configuration>
+			<archive>
+			  <manifestEntries>
+			     <Implementation-Version>${version.seam}</Implementation-Version>
+                 <Specification-Version>${version.seam}</Specification-Version>
+                 <Specification-Title>${project.name}</Specification-Title>
+                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>                 
+			     <Implementation-Title>${project.name}</Implementation-Title>
+                 <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+			  </manifestEntries>
+			  <manifestSections>
+			    <manifestSection>
+					<name>Build-Information</name>
+					<manifestEntries>
+					   <Java-Version>${java.version}</Java-Version>
+					   <Java-Vendor>${java.vendor}</Java-Vendor>
+					   <Build-Time>${maven.build.timestamp}</Build-Time>
+					</manifestEntries>
+			     </manifestSection>
+			  </manifestSections>
+			</archive>
+		  </configuration>
+        </plugin>
+        <!-- just for jboss-seam core as it is EJB type not jar -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-ejb-plugin</artifactId>
+            <version>2.3</version>
+            <configuration>
+                <ejbVersion>3.0</ejbVersion>
+                <archive>
+	              <manifestEntries>
+	                 <Implementation-Version>${version.seam}</Implementation-Version>
+	                 <Specification-Version>${version.seam}</Specification-Version>
+	                 <Specification-Title>${project.name}</Specification-Title>
+	                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>                 
+	                 <Implementation-Title>${project.name}</Implementation-Title>
+	                 <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+	              </manifestEntries>
+	              <manifestSections>
+	                <manifestSection>
+	                    <name>Build-Information</name>
+	                    <manifestEntries>
+	                       <Java-Version>${java.version}</Java-Version>
+	                       <Java-Vendor>${java.vendor}</Java-Vendor>
+	                       <Build-Time>${maven.build.timestamp}</Build-Time>
+	                    </manifestEntries>
+	                 </manifestSection>
+	              </manifestSections>
+                </archive>
+            </configuration>
+        </plugin>
  	</plugins>
  	
  	<defaultGoal>package</defaultGoal>
@@ -1409,6 +1486,12 @@
           <version>2.4.1</version>
         </plugin>
         
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.3.1</version>
+  		</plugin>        
+          
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
@@ -1450,41 +1533,6 @@
           <artifactId>maven-cdk-plugin</artifactId>
           <version>${version.richfaces}</version>
         </plugin>
-
-        <!-- Packaging -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>2.3.1</version>
-          <configuration>
-		<archive>
-		  <manifestEntries>
-		     <Implementation-URL>${project.url}</Implementation-URL>
-		     <Implementation-Title>${project.name}</Implementation-Title>
-		     <Implementation-Version>${maven.build.timestamp}</Implementation-Version>
-		     <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
-		     <Specification-Title>${project.name}</Specification-Title>
-		     <Specification-Version>${parsedVersion.osgiVersion}</Specification-Version>
-		     <Specification-Vendor>${project.organization.name}</Specification-Vendor>
-		  </manifestEntries>
-		  <manifestSections>
-		     <manifestSection>
-			<name>Build-Information</name>
-			<manifestEntries>
-			   <Maven-Version>${maven.version}</Maven-Version>
-			   <Java-Version>${java.version}</Java-Version>
-			   <Java-Vendor>${java.vendor}</Java-Vendor>
-			   <Os-Name>${os.name}</Os-Name>
-			   <Os-Arch>${os.arch}</Os-Arch>
-			   <Os-Version>${os.version}</Os-Version>
-			   <SCM>r${buildNumber}</SCM>
-			   <Build-Time>${maven.build.timestamp}</Build-Time>
-			</manifestEntries>
-		     </manifestSection>
-		  </manifestSections>
-		</archive>
-		</configuration>
-        </plugin>
         
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -1514,7 +1562,7 @@
         <plugin>
            <groupId>org.apache.maven.plugins</groupId>
            <artifactId>maven-assembly-plugin</artifactId>
-           <version>2.2-beta-5</version>
+           <version>2.2</version>
            <executions>
               <execution>
                  <id>distribution</id>
@@ -1526,7 +1574,6 @@
                     <descriptors>
                        <descriptor>src/main/assembly/assembly.xml</descriptor>
                     </descriptors>
-                    <finalName>${project.build.finalName}-${project.version}</finalName>
                  </configuration>
               </execution>
            </executions>
@@ -1853,6 +1900,7 @@
    </profiles>
    
   <dependencies>
+
   </dependencies>
   
   <modules>
@@ -1870,6 +1918,7 @@
   	<module>jboss-seam-jul</module>
   	<module>jboss-seam</module>
   	<module>jboss-seam-reference-guide</module>
+  	<module>distribution</module>
   </modules>
   
   
