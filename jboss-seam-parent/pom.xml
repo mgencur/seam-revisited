@@ -68,6 +68,13 @@
         <version>${version.seam}</version>
       </dependency>
       
+      <dependency>
+      	<groupId>org.jboss.seam.reference-guide</groupId>
+      	<artifactId>seam-reference-guide</artifactId>
+      	<version>${version.seam}</version>
+      	<type>jdocbook</type>
+      </dependency>
+      
      <!-- All Seam modules -->
       <dependency>
         <groupId>org.jboss.seam</groupId>
@@ -1360,6 +1367,7 @@
       	<version>5.9</version>
       	<classifier>jdk15</classifier>
       </dependency>
+      
     </dependencies>
   </dependencyManagement>
   
@@ -1418,14 +1426,10 @@
           <version>2.3.1</version>
           <configuration>
 			<archive>
-			  <manifestEntries>
-			     <Implementation-Version>${version.seam}</Implementation-Version>
-                 <Specification-Version>${version.seam}</Specification-Version>
-                 <Specification-Title>${project.name}</Specification-Title>
-                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>                 
-			     <Implementation-Title>${project.name}</Implementation-Title>
-                 <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
-			  </manifestEntries>
+	           	<manifest>
+	           		<addDefaultImplementationEntries/>
+	           		<addDefaultSpecificationEntries/>
+	           	</manifest>   
 			  <manifestSections>
 			    <manifestSection>
 					<name>Build-Information</name>
@@ -1447,14 +1451,11 @@
             <configuration>
                 <ejbVersion>3.0</ejbVersion>
                 <archive>
-	              <manifestEntries>
-	                 <Implementation-Version>${version.seam}</Implementation-Version>
-	                 <Specification-Version>${version.seam}</Specification-Version>
-	                 <Specification-Title>${project.name}</Specification-Title>
-	                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>                 
-	                 <Implementation-Title>${project.name}</Implementation-Title>
-	                 <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
-	              </manifestEntries>
+                	<addMavenDescriptor/>        
+                	<manifest>
+                		<addDefaultImplementationEntries/>
+                		<addDefaultSpecificationEntries/>
+                	</manifest>        
 	              <manifestSections>
 	                <manifestSection>
 	                    <name>Build-Information</name>
@@ -1692,6 +1693,11 @@
             <version>1.4</version>
          </plugin>
    
+        <plugin>
+        	<groupId>org.codehaus.mojo</groupId>
+        	<artifactId>build-helper-maven-plugin</artifactId>
+        	<version>1.5</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
