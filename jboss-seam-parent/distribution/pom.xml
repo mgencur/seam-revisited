@@ -31,11 +31,12 @@
                     <descriptors>
                        <descriptor>src/main/assembly/assembly.xml</descriptor>
                     </descriptors>
-                    <finalName>${project.build.finalName}-${project.version}</finalName>
+<!--                    <finalName>${project.build.finalName}-${project.version}</finalName>-->
                  </configuration>
               </execution>
            </executions>
         </plugin>
+        
       </plugins>
 	</build>
 
@@ -93,6 +94,12 @@
 		<dependency>
 			<groupId>org.jboss.seam</groupId>
 			<artifactId>jboss-seam-wicket</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.seam.reference-guide</groupId>
+			<artifactId>seam-reference-guide</artifactId>
+			<type>jdocbook</type>
 		</dependency>
 	</dependencies>
 

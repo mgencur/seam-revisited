@@ -9,10 +9,11 @@
 	<groupId>org.jboss.seam.reference-guide</groupId>
 	<artifactId>seam-reference-guide</artifactId>
 	<version>2.3-SNAPSHOT</version>
-	<packaging>jdocbook</packaging>
 	<name>Seam Reference Guide</name>
-
+	<packaging>jdocbook</packaging>
+	
 	<build>
+	<defaultGoal>process-classes</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -32,6 +33,28 @@
 					</execution>
 				</executions>
 			</plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach-zip</id>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>attach-artifact</goal>
+                  </goals>
+                  <configuration>
+                     <artifacts>
+                        <artifact>
+                           <file>${project.build.outputDirectory}/${project.artifactId}-${project.version}.war</file>
+                           <type>war</type>
+                        </artifact>
+                     </artifacts>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>			
+			
 			<plugin>
 				<groupId>org.jboss.maven.plugins</groupId>
 				<artifactId>maven-jdocbook-plugin</artifactId>
@@ -89,9 +112,7 @@
 						</format>
 						<format>
 							<formatName>html_single</formatName>
-							<stylesheetResource>
-								classpath:/xslt/org/jboss/seam/xhtml-single.xsl
-                     </stylesheetResource>
+							<stylesheetResource>classpath:/xslt/org/jboss/seam/xhtml-single.xsl</stylesheetResource>
 							<finalName>index.html</finalName>
 						</format>
 					</formats>
@@ -102,7 +123,7 @@
 							scheme -->
 						<!-- could also locate the docbook dependency and inspect its version... -->
 						<docbookVersion>1.72.0</docbookVersion>
-						<localeSeparator>-</localeSeparator>
+						<localeSeparator>-</localeSeparator>						
 					</options>
 				</configuration>
 			</plugin>

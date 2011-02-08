@@ -1425,7 +1425,8 @@
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.3.1</version>
           <configuration>
-			<archive>
+			<archive>		
+				<addMavenDescriptor/>		
 	           	<manifest>
 	           		<addDefaultImplementationEntries/>
 	           		<addDefaultSpecificationEntries/>
@@ -1910,6 +1911,7 @@
   </dependencies>
   
   <modules>
+    <module>jboss-seam-gen</module>
   	<module>jboss-seam-ui</module>
   	<module>jboss-seam-debug</module>
   	<module>jboss-seam-excel</module>
