@@ -69,10 +69,9 @@
       </dependency>
       
       <dependency>
-      	<groupId>org.jboss.seam.reference-guide</groupId>
+      	<groupId>org.jboss.seam</groupId>
       	<artifactId>seam-reference-guide</artifactId>
       	<version>${version.seam}</version>
-      	<type>jdocbook</type>
       </dependency>
       
      <!-- All Seam modules -->
@@ -1381,9 +1380,9 @@
 	</ciManagement>
  
  <scm>
- 	<connection>scm:git:git://github.com/mareknovotny/seam-revisited</connection>
- 	<developerConnection>scm:git:git://github.com/mareknovotny/seam-revisited</developerConnection>
- 	<url>https://github.com/mareknovotny/seam-revisited</url>
+ 	<connection>scm:git:git://github.com/mareknovotny/seam-revisited/jboss-seam-parent</connection>
+ 	<developerConnection>scm:git:git://github.com/mareknovotny/seam-revisited/jboss-seam-parent</developerConnection>
+ 	<url>https://github.com/mareknovotny/seam-revisited/jboss-seam-parent</url>
  </scm>
  
  <organization>
@@ -1426,11 +1425,15 @@
           <version>2.3.1</version>
           <configuration>
 			<archive>		
-				<addMavenDescriptor/>		
-	           	<manifest>
-	           		<addDefaultImplementationEntries/>
-	           		<addDefaultSpecificationEntries/>
-	           	</manifest>   
+			  <addMavenDescriptor/>		
+              <manifestEntries>
+                <Implementation-Version>${version.seam}</Implementation-Version>
+                 <Specification-Version>${version.seam}</Specification-Version>
+                 <Specification-Title>${project.name}</Specification-Title>
+                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>                 
+                 <Implementation-Title>${project.name}</Implementation-Title>
+                 <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+              </manifestEntries> 
 			  <manifestSections>
 			    <manifestSection>
 					<name>Build-Information</name>
@@ -1452,11 +1455,15 @@
             <configuration>
                 <ejbVersion>3.0</ejbVersion>
                 <archive>
-                	<addMavenDescriptor/>        
-                	<manifest>
-                		<addDefaultImplementationEntries/>
-                		<addDefaultSpecificationEntries/>
-                	</manifest>        
+                  <addMavenDescriptor/>        
+	              <manifestEntries>
+	                <Implementation-Version>${version.seam}</Implementation-Version>
+	                 <Specification-Version>${version.seam}</Specification-Version>
+	                 <Specification-Title>${project.name}</Specification-Title>
+	                 <Specification-Vendor>${project.organization.name}</Specification-Vendor>                 
+	                 <Implementation-Title>${project.name}</Implementation-Title>
+	                 <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+	              </manifestEntries>        
 	              <manifestSections>
 	                <manifestSection>
 	                    <name>Build-Information</name>
@@ -1470,9 +1477,22 @@
                 </archive>
             </configuration>
         </plugin>
+        <plugin>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-javadoc-plugin</artifactId>
+        	<version>2.7</version>
+        	<executions>
+        		<execution>
+        			<id>attach-javadocs</id>
+        			<goals>
+        				<goal>jar</goal>
+        			</goals>
+        		</execution>
+        	</executions>
+        </plugin>
  	</plugins>
  	
- 	<defaultGoal>package</defaultGoal>
+<!-- 	<defaultGoal>package</defaultGoal>-->
     
     <pluginManagement>
       <plugins>
@@ -1580,24 +1600,7 @@
               </execution>
            </executions>
         </plugin>
-        
-        <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-site-plugin</artifactId>
-           <version>2.0.1</version>
-        </plugin>
-        
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.7</version>
-          <configuration>
-	          <stylesheetfile>jdstyle.css</stylesheetfile>
-	          <doctitle>JBoss Seam API ${project.version}</doctitle> <!-- Used by javadoc:javadoc goal -->
-	          <testDoctitle>JBoss Seam Test API ${project.version}</testDoctitle> <!-- Used by javadoc:test-javadoc goal -->
-          </configuration>
-        </plugin>
-		
+        		
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
@@ -1699,6 +1702,11 @@
         	<artifactId>build-helper-maven-plugin</artifactId>
         	<version>1.5</version>
         </plugin>
+        <plugin>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-site-plugin</artifactId>
+        	<version>2.2</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -1774,19 +1782,21 @@
          </properties>
          <build>
             <plugins>
-               <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-javadoc-plugin</artifactId>
-                  <executions>
-                     <execution>
-                        <id>javadoc</id>
-                        <phase>package</phase>
-                        <goals>
-                           <goal>jar</goal>
-                        </goals>
-                     </execution>
-                  </executions>
-               </plugin>
+		        <plugin>
+		          <groupId>org.apache.maven.plugins</groupId>
+		          <artifactId>maven-javadoc-plugin</artifactId>
+		          <version>2.7</version>
+		          <configuration>
+		              <links>
+		                 <link>http://java.sun.com/j2se/5.0/docs/api</link>
+		              </links>
+		              <keywords>true</keywords>
+		              <author>true</author>
+		              <stylesheetfile>jdstyle.css</stylesheetfile>
+		              <doctitle>JBoss Seam API ${project.version}</doctitle> <!-- Used by javadoc:javadoc goal -->
+		              <testDoctitle>JBoss Seam Test API ${project.version}</testDoctitle> <!-- Used by javadoc:test-javadoc goal -->
+		          </configuration>
+		        </plugin>
                <plugin>
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-deploy-plugin</artifactId>
@@ -1925,7 +1935,7 @@
   	<module>jboss-seam-ioc</module>
   	<module>jboss-seam-jul</module>
   	<module>jboss-seam</module>
-  	<module>jboss-seam-reference-guide</module>
+  	<module>seam-reference-guide</module>
   	<module>distribution</module>
   </modules>
   
