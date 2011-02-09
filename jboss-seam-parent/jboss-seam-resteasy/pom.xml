@@ -10,7 +10,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-resteasy</artifactId>
-	<name>jboss-seam-resteasy</name>
+	<name>Resteasy</name>
 	<version>${version.seam}</version>
 	<packaging>jar</packaging>
 
@@ -79,4 +79,21 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+			</plugin>
+		</plugins>
+	</build>	
 </project>

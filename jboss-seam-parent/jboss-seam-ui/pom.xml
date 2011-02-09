@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-ui</artifactId>
-	<name>jboss-seam-ui</name>
+	<name>UI</name>
 	<version>${version.seam}</version>
 	<packaging>jar</packaging>
 
@@ -43,7 +43,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<executions>
 					<execution>
@@ -53,6 +52,19 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+			</plugin>			
 		</plugins>
 	</build>
 
@@ -191,4 +203,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+		
 </project>

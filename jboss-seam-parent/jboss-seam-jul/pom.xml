@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-jul</artifactId>
-	<name>jboss-seam-jul</name>
+	<name>JUL</name>
 	<version>${version.seam}</version>
 	<packaging>jar</packaging>
 
@@ -20,4 +20,21 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

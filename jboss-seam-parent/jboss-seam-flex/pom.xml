@@ -10,7 +10,7 @@
 
   <groupId>org.jboss.seam</groupId>
   <artifactId>jboss-seam-flex</artifactId>
-  <name>jboss-seam-flex</name>
+  <name>Flex</name>
   <version>${version.seam}</version>
   <packaging>jar</packaging>
 
@@ -68,11 +68,20 @@
 		
 	</dependencies>
 	
-<!--	<build>-->
-<!--		<plugins>-->
-<!--			<plugin>-->
-<!--				<artifactId>maven-assembly-plugin</artifactId>-->
-<!--			</plugin>-->
-<!--		</plugins>-->
-<!--	</build>	-->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

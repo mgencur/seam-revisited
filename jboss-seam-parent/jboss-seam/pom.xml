@@ -14,7 +14,7 @@
 	<version>${version.seam}</version>
 	<packaging>ejb</packaging>
 
-	<name>jboss-seam-core</name>
+	<name>Core</name>
 	<description>Seam core module for Seam framework</description>
 
 	<build>
@@ -35,6 +35,19 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
 			</plugin>
 		</plugins>
 	</build>

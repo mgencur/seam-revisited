@@ -10,7 +10,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-debug</artifactId>
-	<name>jboss-seam-debug</name>
+	<name>Debug</name>
 	<version>${version.seam}</version>
 	<packaging>jar</packaging>
 
@@ -52,11 +52,24 @@
 		</dependency>
 
 	</dependencies>
-<!--	<build>-->
-<!--		<plugins>-->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>install</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+			</plugin>
+		
 <!--			<plugin>-->
 <!--				<artifactId>maven-assembly-plugin</artifactId>-->
 <!--			</plugin>-->
-<!--		</plugins>-->
-<!--	</build>-->
+		</plugins>
+	</build>
 </project>

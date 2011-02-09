@@ -5,7 +5,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.seam</groupId>
    <artifactId>jboss-seam-gen</artifactId>
-   <name>jboss-seam-gen</name>
+   <name>Gen</name>
    <version>${version.seam}</version>
    <packaging>jar</packaging>
    <parent>
@@ -35,6 +35,19 @@
    				</execution>
    			</executions>
    		</plugin>
+   		
+		<plugin>
+			<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>install</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+		</plugin>
    	</plugins>
    </build>
    <dependencies>
