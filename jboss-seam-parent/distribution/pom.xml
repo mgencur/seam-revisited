@@ -97,9 +97,8 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.jboss.seam.reference-guide</groupId>
+			<groupId>org.jboss.seam</groupId>
 			<artifactId>seam-reference-guide</artifactId>
-			<type>jdocbook</type>
 		</dependency>
 	</dependencies>
 
