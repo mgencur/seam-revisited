@@ -27,7 +27,7 @@
   		<name>Seam Developer List</name>  		
   	</mailingList>
   </mailingLists>
-  <description>Java EE 5 framework to get easy  developing Java Enterprise applications</description>
+  <description>Java EE 5 framework to get easy developing Java Enterprise applications</description>
   <url>http://seamframework.org/Seam2</url>
 
   <properties>
@@ -53,6 +53,7 @@
       <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
       <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
       <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+      <dist.dir>${project.basedir}</dist.dir>
   </properties>
   
   
@@ -1425,7 +1426,6 @@
           <version>2.3.1</version>
           <configuration>
 			<archive>		
-			  <addMavenDescriptor/>		
               <manifestEntries>
                 <Implementation-Version>${version.seam}</Implementation-Version>
                  <Specification-Version>${version.seam}</Specification-Version>
@@ -1455,7 +1455,6 @@
             <configuration>
                 <ejbVersion>3.0</ejbVersion>
                 <archive>
-                  <addMavenDescriptor/>        
 	              <manifestEntries>
 	                <Implementation-Version>${version.seam}</Implementation-Version>
 	                 <Specification-Version>${version.seam}</Specification-Version>
@@ -1484,6 +1483,7 @@
         	<executions>
         		<execution>
         			<id>attach-javadocs</id>
+        			<phase>install</phase>
         			<goals>
         				<goal>jar</goal>
         			</goals>
@@ -1548,12 +1548,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.6</version>
-        </plugin>
-        
-        <plugin>
-          <groupId>org.richfaces.cdk</groupId>
-          <artifactId>maven-cdk-plugin</artifactId>
-          <version>${version.richfaces}</version>
         </plugin>
         
         <plugin>
@@ -1627,75 +1621,9 @@
         	</configuration>
         </plugin>
         
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-eclipse-plugin</artifactId>
-            <configuration>
-               <classpathContainers>
-                  <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-               </classpathContainers>
-            </configuration>
-         </plugin>
         
-         <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-maven-plugin</artifactId>
-            <version>1.3.2.1</version>
-            <configuration>
-               <nexusUrl>https://repository.jboss.org/nexus</nexusUrl>
-               <serverAuthId>jboss-releases-repository</serverAuthId>
-            </configuration>
-         </plugin>
-        <plugin>
-           <groupId>org.codehaus.mojo</groupId>
-           <artifactId>jboss-maven-plugin</artifactId>
-           <version>1.4</version>
-        </plugin>
-        <plugin>
-           <groupId>org.codehaus.mojo</groupId>
-           <artifactId>emma-maven-plugin</artifactId>
-           <version>1.0-alpha-2</version>
-        </plugin>
-        <plugin>
-           <groupId>org.sonatype.maven.plugin</groupId>
-           <artifactId>emma4it-maven-plugin</artifactId>
-           <version>1.3</version>
-        </plugin>
-        <plugin>
-           <groupId>org.codehaus.mojo</groupId>
-           <artifactId>findbugs-maven-plugin</artifactId>
-           <version>2.3.1</version>
-           <configuration>
-              <effort>Max</effort>
-              <threshold>Low</threshold>
-              <xmlOutput>true</xmlOutput>
-              <failOnError>false</failOnError>
-           </configuration>
-           <executions>
-              <execution>
-                 <goals>
-                    <goal>check</goal>
-                 </goals>
-              </execution>
-           </executions>
-        </plugin>
         
-        <plugin>
-          <groupId>org.codehaus.cargo</groupId>
-          <artifactId>cargo-maven2-plugin</artifactId>
-          <version>1.0.1</version>
-       </plugin>
-       <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>selenium-maven-plugin</artifactId>
-          <version>1.0.1</version>
-       </plugin>
    
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-scm-plugin</artifactId>
-            <version>1.4</version>
-         </plugin>
    
         <plugin>
         	<groupId>org.codehaus.mojo</groupId>
