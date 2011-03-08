@@ -11,9 +11,9 @@
 	<version>2.3-SNAPSHOT</version>
 	<name>Seam Reference Guide</name>
 	<packaging>jar</packaging>
-	
+
 	<build>
-	<defaultGoal>process-classes</defaultGoal>
+		<defaultGoal>process-classes</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -23,9 +23,9 @@
 					<execution>
 						<phase>generate-sources</phase>
 						<configuration>
-							<tasks>
+							<target>
 								<echo file="${project.basedir}/src/docbook/en-US/Version_Info.xml">&lt;releaseinfo&gt;${project.version}&lt;/releaseinfo&gt;</echo>
-							</tasks>
+							</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>
@@ -33,28 +33,28 @@
 					</execution>
 				</executions>
 			</plugin>
-         <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>attach-zip</id>
-                  <phase>package</phase>
-                  <goals>
-                     <goal>attach-artifact</goal>
-                  </goals>
-                  <configuration>
-                     <artifacts>
-                        <artifact>
-                           <file>${project.build.outputDirectory}/${project.artifactId}-${project.version}.war</file>
-                           <type>zip</type>
-                        </artifact>
-                     </artifacts>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>			
-			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-zip</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>${project.build.outputDirectory}/${project.artifactId}-${project.version}.war</file>
+									<type>zip</type>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.jboss.maven.plugins</groupId>
 				<artifactId>maven-jdocbook-plugin</artifactId>
@@ -110,6 +110,13 @@
 						<version>${jbossorg.docbook.version}</version>
 						<type>jdocbook-style</type>
 					</dependency>
+					 <dependency>
+			            <!-- DocBook (this is the version used, unless user project imports one...) -->
+			            <groupId>net.sf.docbook</groupId>
+			            <artifactId>docbook</artifactId>
+			            <version>1.72.0</version>
+			        </dependency>
+					
 				</dependencies>
 				<configuration>
 					<sourceDirectory>${project.basedir}/src/docbook</sourceDirectory>
@@ -140,28 +147,30 @@
 						</format>
 					</formats>
 					<options>
-						<xincludeSupported>true</xincludeSupported>
-						<xmlTransformerType>saxon</xmlTransformerType>
-						<!-- needed for uri-resolvers; can be ommitted if using 'current' uri 
-							scheme -->
-						<!-- could also locate the docbook dependency and inspect its version... -->
-						<docbookVersion>1.72.0</docbookVersion>
-						<localeSeparator>-</localeSeparator>						
-					</options>
+	                  <xincludeSupported>true</xincludeSupported>
+	                  <xmlTransformerType>saxon</xmlTransformerType>
+	                  <docbookVersion>1.72.0</docbookVersion>
+	                  <transformerParameters>
+	                     <property>
+	                        <name>javax.xml.parsers.DocumentBuilderFactory</name>
+	                        <value>org.apache.xerces.jaxp.DocumentBuilderFactoryImpl</value>
+	                     </property>
+	                     <property>
+	                        <name>javax.xml.parsers.SAXParserFactory</name>
+	                        <value>org.apache.xerces.jaxp.SAXParserFactoryImpl</value>
+	                     </property>
+	                  </transformerParameters>
+	                  <localeSeparator>-</localeSeparator>
+                    </options>
 				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.0</version>
-				</plugin>
-				<plugin>
 					<groupId>org.jboss.maven.plugins</groupId>
 					<artifactId>maven-jdocbook-plugin</artifactId>
-					<version>2.1.1</version>
+					<version>2.2.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -177,7 +186,8 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.jboss.maven.plugins</groupId>						<artifactId>maven-jdocbook-plugin</artifactId>
+						<groupId>org.jboss.maven.plugins</groupId>
+						<artifactId>maven-jdocbook-plugin</artifactId>
 						<configuration>
 							<translations>
 								<translation>fr-FR</translation>
