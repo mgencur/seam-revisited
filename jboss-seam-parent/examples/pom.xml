@@ -6,19 +6,251 @@
 		<groupId>org.jboss.seam</groupId>
 		<artifactId>jboss-seam-parent</artifactId>
 		<version>2.3-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>examples</artifactId>
-	<version>${version.seam}</version>
 	<packaging>pom</packaging>
 
 	<name>Seam 2 examples</name>
 	<description>Examples for Seam 2 Framework</description>
 
 	<modules>
-		<module></module>
+		<module>blog</module>
+		<!-- <module>booking</module> -->
+		<!-- <module>contactlist</module> -->
+		<!-- <module>drools</module> -->
+		<!-- <module>excel</module> -->
+		<!-- <module>groovybooking</module> -->
+		<!-- <module>guice</module> -->
+		<!-- <module>hibernate</module> -->
+		<!-- <module>icefaces</module> -->
+		<!-- <module>itext</module> -->
+		<!-- <module>jee5/remoting</module> -->
+		<!-- <module>jee5/booking</module> -->
+		<!-- <module>jpa</module> -->
+		<!-- <module>mail</module> -->
+		<!-- <module>messages</module> -->
+		<!-- <module>metawidget/dvdstore</module> -->
+		<!-- <module>metawidget/booking</module> -->
+		<!-- <module>metawidget/groovybooking</module> -->
+		<!-- <module>nestedbooking</module> -->
+		<!-- <module>numberguess</module> -->
+		<!-- <module>openid</module> -->
+		<!-- <module>portal</module> -->
+		<!-- <module>quartz</module> -->
+		<!-- <module>registration</module> -->
+		<!-- <module>remoting</module> -->
+		<!-- <module>restbay</module> -->
+		<!-- <module>rss</module> -->
+		<!-- <module>seambay</module> -->
+		<!-- <module>seamdiscs</module> -->
+		<!-- <module>seampay</module> -->
+		<!-- <module>seamspace</module> -->
+		<!-- <module>spring</module> -->
+		<!-- <module>tasks</module> -->
+		<!-- <module>todo</module> -->
+		<!-- <module>ui</module> -->
+		<!-- <module>wicket</module> -->
+		<!-- <module>wiki</module> -->
 	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.0.2.SP1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.4.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.4.3</version>
+					<configuration>
+						<excludedGroups>${tests.excludedGroups}</excludedGroups>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>cz.mana.myseamproj</groupId>
+				<artifactId>seamtemplateproj-util</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>cz.mana.myseamproj</groupId>
+				<artifactId>seamtemplateproj-ejb</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>cz.mana.myseamproj</groupId>
+				<artifactId>seamtemplateproj-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.richfaces.ui</groupId>
+				<artifactId>richfaces-ui</artifactId>
+				<version>${richfaces.version}</version>
+			</dependency>
+			<dependency>
+				<artifactId>richfaces-api</artifactId>
+				<groupId>org.richfaces.framework</groupId>
+				<version>${richfaces.version}</version>
+			</dependency>
+			<!-- common provided scope dependencies -->
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.1.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>3.2</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.ejb</groupId>
+				<artifactId>ejb-api</artifactId>
+				<version>3.0</version>
+				<type>jar</type>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.seam</groupId>
+				<artifactId>jboss-seam</artifactId>
+				<version>${version.seam}</version>
+				<type>ejb</type>
+				<scope>provided</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>jboss</groupId>
+						<artifactId>javassist</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>javax.faces</groupId>
+				<artifactId>jsf-api</artifactId>
+				<version>${jsf.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.faces</groupId>
+				<artifactId>jsf-impl</artifactId>
+				<version>${jsf.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>1.4.2</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.activation</groupId>
+				<artifactId>activation</artifactId>
+				<version>1.1</version>
+				<type>jar</type>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+				<version>1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-annotations</artifactId>
+				<version>${hibernate-em.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate-em.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>3.1.0.GA</version>
+				<type>jar</type>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.14</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- common test scope dependencies -->
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>5.10</version>
+				<type>jar</type>
+				<scope>test</scope>
+				<classifier>jdk15</classifier>
+				<exclusions>
+					<exclusion>
+						<groupId>org.junit</groupId>
+						<artifactId>junit</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<properties>
+		<!-- artifact versions -->
+		<hibernate.version>3.3.2.GA</hibernate.version>
+		<hibernate-em.version>3.4.0.GA</hibernate-em.version>
+		<slf4j.version>1.5.8</slf4j.version>
+		<jsf.version>1.2_12</jsf.version>
+		<richfaces.version>3.3.3.Final</richfaces.version>
+		<java.version>1.5</java.version>
+
+		<!-- Excluded TestNG groups (ex: slow annotated tests won't run during 
+			the test phase) -->
+		<tests.excludedGroups>slow</tests.excludedGroups>
+	</properties>
 </project>
 
