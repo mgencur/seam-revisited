@@ -1,0 +1,10 @@
+# ignore eclipse files
+.project
+.classpath
+.settings
+
+# maven build results
+target
+
+#work projects
+integration-tests
