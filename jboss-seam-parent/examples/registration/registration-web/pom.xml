@@ -15,7 +15,7 @@
     
     <properties>
         <!-- filtering property for components.xml -->
-        <jndiPattern>registration/#{ejbName}/local</jndiPattern>
+        <jndiPattern>seam-registration/#{ejbName}/local</jndiPattern>
     </properties>
     
     <dependencies>

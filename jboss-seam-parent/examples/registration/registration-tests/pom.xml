@@ -103,11 +103,47 @@
                         <additionalClasspathElement>${basedir}/../registration-web/src/main/webapp</additionalClasspathElement>
                     </additionalClasspathElements>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources-unit/jboss-embedded.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources-unit/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
           </plugin>
         </plugins>     
     </build>    
+
+    <profiles>
+        <profile>
+            <id>ftest</id>
+            <properties>
+                <example.context.path>seam-registration</example.context.path>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>jboss-maven-plugin</artifactId>
+                        <configuration>
+                            <jbossHome>${jboss.home}</jbossHome>
+                            <serverName>${jboss.domain}</serverName>
+                            <fileNames>
+                                <param>${basedir}/../registration-ear/target/seam-registration.ear</param>
+                            </fileNames>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>selenium-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>failsafe-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     
 </project>

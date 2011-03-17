@@ -48,7 +48,7 @@
     </dependencies>
 
     <build>
-        <finalName>registration</finalName>
+        <finalName>seam-registration</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -63,7 +63,7 @@
                     <generateApplicationXml>true</generateApplicationXml>
                     <jboss>
                         <version>5</version>
-                        <loader-repository>seam.jboss.org:loader=registration.ear</loader-repository>
+                        <loader-repository>seam.jboss.org:loader=seam-registration.ear</loader-repository>
                     </jboss>
                     <modules>
                         <webModule>
@@ -83,7 +83,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jboss-maven-plugin</artifactId>
-                <version>1.4.1</version>
                 <configuration>
                     <jbossHome>${jboss.home}</jbossHome>
                     <serverName>${jboss.domain}</serverName>
