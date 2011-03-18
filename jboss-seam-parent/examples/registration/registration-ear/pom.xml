@@ -93,7 +93,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <profiles>
         <profile>
             <id>exploded</id>
@@ -102,47 +102,44 @@
             </properties>
             <build>
                 <plugins>
-                
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
                         <executions>
-				           <execution>
-				             <id>unpack</id>
-				             <phase>package</phase>
-				             <goals>
-				               <goal>unpack</goal>
-				             </goals>
-				             <configuration>
-				               <artifactItems>
-                                 <artifactItem>
-                                   <groupId>org.jboss.seam.examples</groupId>
-                                   <artifactId>registration-ear</artifactId>
-                                   <type>ear</type>
-                                   <overWrite>true</overWrite>
-                                   <outputDirectory>${project.build.directory}/${project.build.finalName}-exploded.ear</outputDirectory>                                   
-                                 </artifactItem>
-				                 <artifactItem>
-                                   <groupId>org.jboss.seam.examples</groupId>
-                                   <artifactId>registration-web</artifactId>
-                                   <type>war</type>
-				                   <overWrite>true</overWrite>
-				                   <outputDirectory>${project.build.directory}/${project.build.finalName}-exploded.ear/${example.name}-web.war</outputDirectory>				                   
-				                 </artifactItem>
-				                 <artifactItem>
-                                   <groupId>org.jboss.seam.examples</groupId>
-                                   <artifactId>registration-ejb</artifactId>
-                                   <type>jar</type>
-                                   <overWrite>true</overWrite>
-                                   <outputDirectory>${project.build.directory}/${project.build.finalName}-exploded.ear/${example.name}-ejb.jar</outputDirectory>                                   
-                                 </artifactItem>	
-				               </artifactItems>
-				               
-				             </configuration>
-				           </execution>
-				         </executions>                                              
+                            <execution>
+                                <id>unpack</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.jboss.seam.examples</groupId>
+                                            <artifactId>registration-ear</artifactId>
+                                            <type>ear</type>
+                                            <overWrite>true</overWrite>
+                                            <outputDirectory>${project.build.directory}/${project.build.finalName}-exploded/${project.build.finalName}.ear</outputDirectory>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>org.jboss.seam.examples</groupId>
+                                            <artifactId>registration-web</artifactId>
+                                            <type>war</type>
+                                            <overWrite>true</overWrite>
+                                            <outputDirectory>${project.build.directory}/${project.build.finalName}-exploded/${project.build.finalName}.ear/${example.name}-web.war</outputDirectory>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>org.jboss.seam.examples</groupId>
+                                            <artifactId>registration-ejb</artifactId>
+                                            <type>jar</type>
+                                            <overWrite>true</overWrite>
+                                            <outputDirectory>${project.build.directory}/${project.build.finalName}-exploded/${project.build.finalName}.ear/${example.name}-ejb.jar</outputDirectory>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
-                    
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>jboss-maven-plugin</artifactId>
@@ -150,11 +147,10 @@
                             <jbossHome>${jboss.home}</jbossHome>
                             <serverName>${jboss.domain}</serverName>
                             <fileNames>
-                                <directory>${project.build.directory}/${project.build.finalName}-exploded.ear/${project.build.finalName}.${project.packaging}</directory>
+                                <directory>${project.build.directory}/${project.build.finalName}-exploded/${project.build.finalName}.ear</directory>
                             </fileNames>
                         </configuration>
                     </plugin>
-                    
                 </plugins>
             </build>
         </profile>
