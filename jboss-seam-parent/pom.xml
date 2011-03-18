@@ -1714,7 +1714,8 @@
 		<module>jboss-seam</module>
 		<module>seam-reference-guide</module>
 		<module>distribution</module>
-<!--		<module>integration-tests</module>-->
+		<module>integration-tests</module>
+<!--		<module>seam-integration-tests</module>-->
 <!--		<module>examples</module>-->
 	</modules>
 
