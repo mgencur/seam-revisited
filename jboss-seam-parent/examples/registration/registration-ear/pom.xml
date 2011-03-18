@@ -94,4 +94,32 @@
         </plugins>
     </build>
     
+    <profiles>
+        <profile>
+            <id>exploded</id>
+            <properties>
+                <example.name>registration</example.name>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>jboss-maven-plugin</artifactId>
+                        <configuration>
+                            <jbossHome>${jboss.home}</jbossHome>
+                            <serverName>${jboss.domain}</serverName>
+                            <fileNames>
+                                <directory>${project.build.directory}/${project.build.finalName}-exploded/${project.build.finalName}.${project.packaging}</directory>
+                            </fileNames>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    
 </project>
