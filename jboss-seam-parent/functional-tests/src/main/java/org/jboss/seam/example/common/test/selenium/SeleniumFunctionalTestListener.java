@@ -49,7 +49,7 @@ public class SeleniumFunctionalTestListener extends SeamSeleniumTest implements 
    
    public void onTestFailure(ITestResult arg0)
    {
-      String logPath = OUTPUT_DIR + APP_NAME + "/" + arg0.getName();
+      String logPath = OUTPUT_DIR + "/" + arg0.getName();
       try {
          SeamSeleniumTest.browser.captureScreenshot(logPath + ".png");
       } catch (Exception e) {         

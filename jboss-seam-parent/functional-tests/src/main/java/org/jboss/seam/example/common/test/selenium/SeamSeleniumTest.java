@@ -51,7 +51,6 @@ public abstract class SeamSeleniumTest {
     private static Properties properties = new Properties();
     private static boolean propertiesLoaded = false;
     
-    protected static String SEAM_DIR;
     protected static String APP_NAME;
     protected static String OUTPUT_DIR;
     protected static String JBOSS_HOME;
@@ -64,10 +63,10 @@ public abstract class SeamSeleniumTest {
     @BeforeClass
     @Parameters( { "selenium.host", "selenium.server.port", "selenium.browser",
             "selenium.browser.url", "selenium.speed", "selenium.timeout",
-            "PROPERTY_FILE", "example.context.path", "seam.dir", "jboss.home", "container"})
+            "PROPERTY_FILE", "example.context.path", "selenium.output.dir", "jboss.home", "container"})
     public void setParameters(String host, String port, String browser,
             String browserUrl, String speed, String timeout, String propertyFile,
-            @Optional("") String contextPath, String seamDir, String jbossHome, String container) {
+            @Optional("") String contextPath, String outputDir, String jbossHome, String container) {
         HOST = host;
         PORT = Integer.parseInt(port);
         BROWSER = browser;
@@ -76,8 +75,7 @@ public abstract class SeamSeleniumTest {
         TIMEOUT = timeout;
         PROPERTY_FILE = propertyFile;
         CONTEXT_PATH = APP_NAME = contextPath;
-        SEAM_DIR = seamDir;
-        OUTPUT_DIR = SEAM_DIR + "/test-output/functional-framework";
+        OUTPUT_DIR = outputDir;
         JBOSS_HOME = jbossHome;
         CONTAINER = container;
     }

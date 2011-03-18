@@ -398,8 +398,8 @@
                                         <value>${selenium.timeout}</value>
                                     </property>
                                     <property>
-                                        <name>seam.dir</name>
-                                        <value>${basedir}</value>
+                                        <name>selenium.output.dir</name>
+                                        <value>${selenium.output.dir}</value>
                                     </property>
                                     <property>
                                         <name>jboss.home</name>
@@ -499,6 +499,7 @@
         <selenium.timeout>30000</selenium.timeout>
         <selenium.debug>false</selenium.debug>
         <selenium.log.dir>${project.build.directory}/ftest-logs</selenium.log.dir>
+        <selenium.output.dir>${project.build.directory}/ftest-output</selenium.output.dir>
         <application.deploy.timeout>300</application.deploy.timeout>
         <browserSessionReuse>true</browserSessionReuse>
         <ftest.resources.dir>src/test/resources-ftest</ftest.resources.dir>
