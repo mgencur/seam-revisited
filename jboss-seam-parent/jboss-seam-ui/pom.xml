@@ -35,6 +35,7 @@
 						<taglib>
 							<displayName>JBoss Seam UI</displayName>
 							<shortName>s</shortName>
+							<uri>http://jboss.com/products/seam/taglib</uri>
 							<tlibVersion>2.0</tlibVersion>
 							<jspVersion>2.1</jspVersion>
 						</taglib>
