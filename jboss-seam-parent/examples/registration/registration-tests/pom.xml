@@ -106,7 +106,45 @@
                         <suiteXmlFile>src/test/resources-unit/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
-          </plugin>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                       <id>copy-seam-bootstrap</id>
+                       <phase>process-resources</phase>
+                       <goals>
+                          <goal>unpack</goal>
+                       </goals>
+                       <configuration>
+                          <artifactItems>
+                              <artifactItem>
+                                   <groupId>org.jboss.seam</groupId>
+                                   <artifactId>integration-tests</artifactId>
+                                   <version>${project.version}</version>
+                                   <type>jar</type>
+                                   <overWrite>false</overWrite>
+                                   <outputDirectory>${basedir}/src/test</outputDirectory>
+                              </artifactItem>
+                          </artifactItems>
+                       </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/src/test/bootstrap</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>${basedir}/src/test/META-INF</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
         </plugins>     
     </build>    
 
