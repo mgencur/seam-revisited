@@ -46,6 +46,7 @@
 		<version.resteasy>2.0-beta-2</version.resteasy>
 		<version.spring>2.5.6.SEC02</version.spring>
 		<version.seam>2.3-SNAPSHOT</version.seam>
+		<version.jbossembedded>beta3.SP10</version.jbossembedded>
 
 		<!-- ***************** -->
 		<!-- Repository Deployment URLs -->
@@ -287,9 +288,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.jbpm.jbpm3</groupId>
+				<groupId>org.jbpm</groupId>
 				<artifactId>jbpm-jpdl</artifactId>
-				<version>3.2.10</version>
+				<version>3.2.2</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.hibernate</groupId>
@@ -913,7 +914,7 @@
 			<dependency>
 				<groupId>org.jboss.seam.embedded</groupId>
 				<artifactId>jboss-embedded-api</artifactId>
-				<version>beta3.SP10</version>
+				<version>${version.jbossembedded}</version>
 			</dependency>
 
 			<dependency>
@@ -1715,7 +1716,7 @@
 		<module>seam-reference-guide</module>
 		<module>distribution</module>
 		<module>integration-tests</module>
-<!--		<module>seam-integration-tests</module>-->
+		<module>seam-integration-tests</module>
 <!--		<module>examples</module>-->
 	</modules>
 
