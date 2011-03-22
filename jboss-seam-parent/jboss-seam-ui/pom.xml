@@ -10,7 +10,6 @@
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-ui</artifactId>
 	<name>UI</name>
-	<version>${version.seam}</version>
 	<packaging>jar</packaging>
 
 	<build>
@@ -136,7 +135,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.jbpm.jbpm3</groupId>
+			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-jpdl</artifactId>
 			<optional>true</optional>
 			<exclusions>

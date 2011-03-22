@@ -11,7 +11,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam</artifactId>
-	<version>${version.seam}</version>
+<!--	<version>${version.seam}</version> -->
 	<packaging>ejb</packaging>
 
 	<name>Core</name>
@@ -345,7 +345,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.jbpm.jbpm3</groupId>
+			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-jpdl</artifactId>
 			<optional>true</optional>
 		</dependency>
