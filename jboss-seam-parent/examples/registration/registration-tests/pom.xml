@@ -121,7 +121,7 @@
                           <artifactItems>
                               <artifactItem>
                                    <groupId>org.jboss.seam</groupId>
-                                   <artifactId>integration-tests</artifactId>
+                                   <artifactId>jboss-embedded-bootstrap</artifactId>
                                    <version>${project.version}</version>
                                    <type>jar</type>
                                    <overWrite>false</overWrite>
