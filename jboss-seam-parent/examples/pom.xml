@@ -55,6 +55,7 @@
         <!-- <module>ui</module> -->
         <!-- <module>wicket</module> -->
         <!-- <module>wiki</module> -->
+        <module>openid</module>
     </modules>
 
     <build>
