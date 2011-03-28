@@ -16,9 +16,7 @@
     <description>Examples for Seam 2 Framework</description>
 
     <modules>
-<!--
         <module>blog</module>
--->
         <!-- <module>booking</module> -->
         <!-- <module>contactlist</module> -->
         <!-- <module>drools</module> -->
@@ -279,7 +277,29 @@
                 <version>${jboss.embedded.version}</version>
                 <scope>test</scope>
              </dependency>
+             <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>2.4.1</version>
+                <type>jar</type>
+             </dependency>
+             <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-core</artifactId>
+                <version>1.3.0</version>
+             </dependency>
+             <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-lucene-analyzers</artifactId>
+                <version>1.3.0</version>
+             </dependency>
+             <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-lucene-snowball</artifactId>
+                <version>1.3.0</version>
+             </dependency>
         </dependencies>
+             
     </dependencyManagement>
 
     <profiles>
