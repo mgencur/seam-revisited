@@ -1,10 +1,10 @@
-Seam Registration Example
+Seam Blog Example
 =========================
 
-This is a trivial example for the Seam tutorial. It runs on both JBoss AS as an
-EAR and Tomcat with Embedded JBoss as a WAR.
+This example demonstrates the use of Seam in a Java EE 5 environment.
+Transaction and persistence context management is handled by the EJB container.
 
-To deploy the example to JBossAS 4, JBossAS 5 or JBossAS 6, follow these steps:
+To deploy the example to JBossAS 5, follow these steps:
 
 * In the example root directory run:
 
@@ -12,9 +12,16 @@ To deploy the example to JBossAS 4, JBossAS 5 or JBossAS 6, follow these steps:
 
 * Set JBOSS_HOME environment property.
 
-* In the registration-ear directory run:
+* In the blog-ear directory run:
 
     mvn jboss:hard-deploy
+
+JBossAS 4.2 needs additional Hibernate libraries, use a -Pjbossas42 maven profile instead to 
+package the application.
+
+JBossAS 6 needs new Hibernate Search with dependencies, and more source code enhancement due to
+Hibernate Search and Lucene-Core API changes. Use a -Pjbossas6 maven profile instead to package 
+the application.
 
 To deploy the example to Tomcat with Embedded JBoss, follow these steps:
 
@@ -22,4 +29,4 @@ To deploy the example to Tomcat with Embedded JBoss, follow these steps:
 
     mvn clean package -Ptomcat
 
-* Deploy the resulting war from registration-web/target directory to Tomcat manually.
+* Deploy the resulting war from blog-web/target directory to Tomcat manually.
