@@ -1,44 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
-        <artifactId>examples</artifactId>
-        <groupId>org.jboss.seam</groupId>
-        <version>2.3-SNAPSHOT</version>
-    </parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jboss.seam.examples</groupId>
+	<artifactId>jboss-seam-booking</artifactId>
+	<parent>
+		<groupId>org.jboss.seam</groupId>
+		<artifactId>examples</artifactId>
+		<version>2.3-SNAPSHOT</version>
+	</parent>
+    <packaging>ear</packaging>
+    <version>${version.seam}</version>
     
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.seam.examples</groupId>
-    <artifactId>booking</artifactId>
-    <packaging>pom</packaging>
-    <name>Booking Example</name>
-  
-    <modules>
-        <module>booking-ejb</module>
-        <module>booking-web</module>
-        <module>booking-ear</module>
-        <module>booking-tests</module>
-    </modules>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
     
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.jboss.seam.examples</groupId>
-                <artifactId>booking-ejb</artifactId>
-                <version>${project.version}</version>
-                <type>ejb</type>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.seam.examples</groupId>
-                <artifactId>booking-web</artifactId>
-                <version>${project.version}</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.seam.examples</groupId>
-                <artifactId>booking-ear</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
+	    <resources>
+	      <resource>    
+	        <directory>resources</directory>
+	      </resource>
+	    </resources>
+    </build>
+    
 </project>
