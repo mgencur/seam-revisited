@@ -91,6 +91,18 @@
                 <directory>src/test/bootstrap</directory>
                 <filtering>false</filtering>
             </testResource>
+			<testResource> <!-- this takes datasource blog-ds.xml -->
+				<directory>${basedir}/../blog-ear/src/main/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+	        <testResource> <!-- this takes treecache.xml -->
+                <directory>${basedir}/../blog-ear/src/main/application</directory>
+                <filtering>true</filtering>
+            </testResource>
+			<testResource> <!-- this takes themes aka *.properties -->
+			     <directory>${basedir}/../blog-web/src/main/resources</directory>
+			     <filtering>true</filtering>
+			</testResource>
         </testResources>
         <plugins>
             <plugin>
@@ -133,37 +145,14 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>deploy-datasource</id>
-                        <phase>process-resource</phase>
-                        <configuration>
-                            <tasks>
-                                <mkdir />
-                                <copy todir="${project.build.directory}/src/main/resource/META-INF" flatten="true">
-                                    <fileset dir="${basedir}/../blog-ear/src/main/resources">
-                                        <include name="blog-ds.xml"/>
-                                    </fileset>
-                                </copy>
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>${basedir}/src/test/bootstrap</directory>
+                            <directory>${basedir}/src/test/META-INF/</directory>
                         </fileset>
                         <fileset>
-                            <directory>${basedir}/src/test/META-INF</directory>
+                            <directory>${basedir}/src/test/bootstrap</directory>
                         </fileset>
                         <fileset>
                             <directory>${basedir}/blogindexes</directory>
