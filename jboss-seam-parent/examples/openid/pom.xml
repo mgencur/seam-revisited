@@ -16,6 +16,7 @@
         <module>openid-ejb</module>
         <module>openid-web</module>
         <module>openid-ear</module>
+        <module>openid-tests</module>
     </modules>
     
     <dependencyManagement>

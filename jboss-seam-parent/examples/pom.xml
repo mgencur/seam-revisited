@@ -430,6 +430,14 @@
                                         <name>container</name>
                                         <value>${container}</value>
                                     </property>
+                                    <property>
+                                        <name>openid.account</name>
+                                        <value>${openid.account}</value>
+                                    </property>
+                                    <property>
+                                        <name>openid.password</name>
+                                        <value>${openid.password}</value>
+                                    </property>
                                 </systemProperties>
                             </configuration>
                             <executions>

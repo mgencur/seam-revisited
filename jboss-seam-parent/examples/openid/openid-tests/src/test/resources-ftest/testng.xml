@@ -16,12 +16,11 @@
 		Boston, MA 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 	--> 
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
-<suite name="Blog example" verbose="2" parallel="false">
-	<test name="blog_tests">
-		<parameter name="PROPERTY_FILE" value="/blog.properties" />
+<suite name="OpenId example" verbose="2" parallel="false">
+	<test name="openid_tests">
+		<parameter name="PROPERTY_FILE" value="" />
 		<classes>
-			<class name="org.jboss.seam.example.blog.test.selenium.NewEntryTest" />
-			<class name="org.jboss.seam.example.blog.test.selenium.SearchTest" />
+			<class name="org.jboss.seam.example.openid.test.selenium.SeleniumOpenIdTest" />
 		</classes>
 	</test>
 </suite>
