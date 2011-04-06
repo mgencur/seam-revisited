@@ -97,9 +97,6 @@
     <profiles>
         <profile>
             <id>exploded</id>
-            <properties>
-                <example.name>registration</example.name>
-            </properties>
             <build>
                 <plugins>
                     <plugin>

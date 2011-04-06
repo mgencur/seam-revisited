@@ -18,6 +18,10 @@
         <module>registration-ear</module>
         <module>registration-tests</module>
     </modules>
+
+    <properties>
+        <example.name>registration</example.name>
+    </properties>
     
     <dependencyManagement>
         <dependencies>
