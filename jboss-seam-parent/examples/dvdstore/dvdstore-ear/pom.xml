@@ -99,9 +99,6 @@
     <profiles>
         <profile>
             <id>exploded</id>
-            <properties>
-                <example.name>dvdstore</example.name>
-            </properties>
             <build>
                 <plugins>
                     <plugin>

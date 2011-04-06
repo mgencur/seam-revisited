@@ -19,6 +19,10 @@
         <module>dvdstore-tests</module>
     </modules>
     
+    <properties>
+        <example.name>dvdstore</example.name>
+    </properties>
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
