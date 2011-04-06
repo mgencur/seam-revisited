@@ -18,7 +18,11 @@
         <module>blog-ear</module>
         <module>blog-tests</module>
     </modules>
-    
+
+    <properties>
+        <example.name>blog</example.name>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
