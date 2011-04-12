@@ -4,23 +4,44 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.seam.examples</groupId>
-	<artifactId>jboss-seam-booking</artifactId>
+	<artifactId>booking</artifactId>
 	<parent>
 		<groupId>org.jboss.seam</groupId>
 		<artifactId>examples</artifactId>
 		<version>2.3-SNAPSHOT</version>
 	</parent>
-    <packaging>ear</packaging>
-    <version>${version.seam}</version>
+    <packaging>pom</packaging>
     
-    <build>
-        <sourceDirectory>src</sourceDirectory>
+    <properties>
+        <example.name>booking</example.name>
+    </properties>
     
-	    <resources>
-	      <resource>    
-	        <directory>resources</directory>
-	      </resource>
-	    </resources>
-    </build>
+    <modules>
+    	<module>booking-ear</module>
+    	<module>booking-ejb</module>
+    	<module>booking-web</module>
+    	<module>booking-tests</module>
+    </modules>
     
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.seam.examples</groupId>
+                <artifactId>booking-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.seam.examples</groupId>
+                <artifactId>booking-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.seam.examples</groupId>
+                <artifactId>booking-ear</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
