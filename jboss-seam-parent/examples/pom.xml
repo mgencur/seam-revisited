@@ -31,13 +31,13 @@
         <!-- <module>jee5/booking</module> -->
         <!-- <module>jpa</module> -->
         <!-- <module>mail</module> -->
-        <!-- <module>messages</module> -->
+        <module>messages</module>
         <!-- <module>metawidget/dvdstore</module> -->
         <!-- <module>metawidget/booking</module> -->
         <!-- <module>metawidget/groovybooking</module> -->
         <!-- <module>nestedbooking</module> -->
         <!-- <module>numberguess</module> -->
-        <!-- <module>openid</module> -->
+        <module>openid</module>
         <!-- <module>portal</module> -->
         <!-- <module>quartz</module> -->
         <module>registration</module>
@@ -54,7 +54,6 @@
         <module>ui</module>
         <!-- <module>wicket</module> -->
         <!-- <module>wiki</module> -->
-        <module>openid</module>
     </modules>
 
     <build>
