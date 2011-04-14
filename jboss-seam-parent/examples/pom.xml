@@ -43,7 +43,7 @@
         <module>registration</module>
         <!-- <module>remoting</module> -->
         <!-- <module>restbay</module> -->
-        <!-- <module>rss</module> -->
+        <module>rss</module>
         <!-- <module>seambay</module> -->
         <!-- <module>seamdiscs</module> -->
         <!-- <module>seampay</module> -->
@@ -438,6 +438,10 @@
                                         <name>openid.password</name>
                                         <value>${openid.password}</value>
                                     </property>
+                                    <property>
+                                        <name>xml.namespace.aware</name>
+                                        <value>${xml.namespace.aware}</value>
+                                    </property>
                                 </systemProperties>
                             </configuration>
                             <executions>
@@ -739,6 +743,7 @@
         <jboss.home>${env.JBOSS_HOME}</jboss.home>
         <jboss.domain>default</jboss.domain>
         <catalina.home>${env.CATALINA_HOME}</catalina.home>
+        <xml.namespace.aware>false</xml.namespace.aware>
     </properties>
 </project>
 
