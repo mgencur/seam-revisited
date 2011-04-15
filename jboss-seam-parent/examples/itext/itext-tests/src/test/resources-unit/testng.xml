@@ -4,7 +4,7 @@
 	<test name="pdf tests">
 		<classes>
 			<class
-				name="org.jboss.seam.example.pdf.test.DocumentTests" />
+				name="org.jboss.seam.example.itext.test.DocumentTests" />
 		</classes>
 	</test>
 </suite>

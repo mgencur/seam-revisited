@@ -26,7 +26,7 @@
         <!-- <module>guice</module> -->
         <!-- <module>hibernate</module> -->
         <!-- <module>icefaces</module> -->
-        <!-- <module>itext</module> -->
+        <module>itext</module>
         <!-- <module>jee5/remoting</module> -->
         <!-- <module>jee5/booking</module> -->
         <!-- <module>jpa</module> -->

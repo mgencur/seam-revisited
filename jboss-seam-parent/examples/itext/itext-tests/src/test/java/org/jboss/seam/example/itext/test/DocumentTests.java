@@ -1,4 +1,4 @@
-package org.jboss.seam.example.pdf.test;
+package org.jboss.seam.example.itext.test;
 
 import org.jboss.seam.contexts.Contexts;
 import org.jboss.seam.core.Conversation;
