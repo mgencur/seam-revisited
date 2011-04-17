@@ -1423,6 +1423,18 @@
                 <version>${version.seam}</version>
                 <scope>test</scope>
             </dependency>
+            
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>commons-digester</groupId>
+                <artifactId>commons-digester</artifactId>
+                <version>2.1</version>
+            </dependency>
 
 		</dependencies>
 	</dependencyManagement>
