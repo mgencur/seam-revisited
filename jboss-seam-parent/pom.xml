@@ -858,6 +858,12 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+            
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-api</artifactId>
+				<version>${version.drools}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.drools</groupId>
@@ -1435,7 +1441,13 @@
                 <artifactId>commons-digester</artifactId>
                 <version>2.1</version>
             </dependency>
-
+            
+            <dependency>
+                <groupId>org.eclipse.jdt</groupId>
+                <artifactId>core</artifactId>
+                <version>3.4.2.v_883_R34x</version>
+            </dependency>
+            
 		</dependencies>
 	</dependencyManagement>
 
