@@ -23,7 +23,7 @@
         <module>dvdstore</module>
         <module>excel</module>
         <!-- <module>groovybooking</module> -->
-        <!-- <module>guice</module> -->
+        <module>guice</module>
         <!-- <module>hibernate</module> -->
         <!-- <module>icefaces</module> -->
         <module>itext</module>
