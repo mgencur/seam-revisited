@@ -203,5 +203,46 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<profiles>
+	   <profile>
+            <id>jsf2_0</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources-jsf20</directory>
+                    </resource>
+                </resources>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun.faces</groupId>
+                    <artifactId>jsf-api</artifactId>
+                    <version>2.0.5-b02</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>jsf1_2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>javax.faces</groupId>
+                    <artifactId>jsf-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 		
 </project>
