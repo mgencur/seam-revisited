@@ -112,6 +112,7 @@ public class RegistrationTest extends SeleniumBookingTest {
         // username)));
         // try logging in to verify registration
         assertTrue("Login failed.", login(username, password));
+        logout();
     }
 
     private void register(String username, String name, String password,

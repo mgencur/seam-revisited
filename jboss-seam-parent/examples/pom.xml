@@ -25,7 +25,7 @@
         <module>guice</module>
         <module>groovybooking</module>
         <!-- <module>hibernate</module> -->
-        <!-- <module>icefaces</module> -->
+        <module>icefaces</module>
         <module>itext</module>
         <!-- <module>jee5/remoting</module> -->
         <!-- <module>jee5/booking</module> -->
@@ -443,6 +443,19 @@
                                     <property>
                                         <name>xml.namespace.aware</name>
                                         <value>${xml.namespace.aware}</value>
+                                    </property>
+                                    <!-- WebDriver specific properties -->
+                                    <property>
+                                        <name>browser</name>
+                                        <value>${selenium.browser}</value>
+                                    </property>
+                                    <property>
+                                        <name>server.url</name>
+                                        <value>${selenium.browser.url}</value>
+                                    </property>
+                                    <property>
+                                        <name>context.path</name>
+                                        <value>${example.context.path}</value>
                                     </property>
                                 </systemProperties>
                             </configuration>
