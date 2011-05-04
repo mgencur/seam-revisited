@@ -1,5 +1,5 @@
 //$Id: ChangePasswordTest.java 6826 2007-11-25 13:12:07Z pmuir $
-package org.jboss.seam.example.booking.test;
+package org.jboss.seam.example.nestedbooking.test;
 
 import org.jboss.seam.contexts.Contexts;
 import org.jboss.seam.core.Manager;

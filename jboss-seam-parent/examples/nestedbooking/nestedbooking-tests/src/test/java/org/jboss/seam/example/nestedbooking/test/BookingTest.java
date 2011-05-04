@@ -1,5 +1,5 @@
 //$Id: BookingTest.java 6896 2007-12-04 15:45:49Z pmuir $
-package org.jboss.seam.example.booking.test;
+package org.jboss.seam.example.nestedbooking.test;
 
 import java.util.Calendar;
 import java.util.Date;
