@@ -29,7 +29,7 @@ public class RepeatingTest
     @Override
     protected void prepareDBUnitOperations() {
         beforeTestOperations.add(
-                new DataSetOperation("org/jboss/seam/example/quartz/test/BaseData.xml")
+                new DataSetOperation("BaseData.xml")
         );
     }
     
