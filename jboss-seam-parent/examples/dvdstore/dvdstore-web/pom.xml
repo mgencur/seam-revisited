@@ -175,6 +175,32 @@
             </dependencies>
             <build>
                 <finalName>jboss-seam-dvdstore</finalName>
+                <plugins>
+                    <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${basedir}/target/classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${basedir}/../dvdstore-ear/src/main/resources</directory>
+                                            <includes>
+                                                <include>jboss-seam-dvdstore-ds.xml</include>
+                                            </includes>
+                                        </resource>
+                                  </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
             </build>
         </profile>
     </profiles>
