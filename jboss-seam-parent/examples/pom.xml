@@ -36,10 +36,10 @@
         <!-- <module>metawidget/booking</module> -->
         <!-- <module>metawidget/groovybooking</module> -->
         <module>nestedbooking</module>
-        <!-- <module>numberguess</module> -->
+        <module>numberguess</module>
         <module>openid</module>
         <!-- <module>portal</module> -->
-        <!-- <module>quartz</module> -->
+        <module>quartz</module>
         <module>registration</module>
         <!-- <module>remoting</module> -->
         <!-- <module>restbay</module> -->
@@ -49,8 +49,8 @@
         <module>seampay</module>
         <module>seamspace</module>
         <!-- <module>spring</module> -->
-        <!-- <module>tasks</module> -->
-        <!-- <module>todo</module> -->
+        <module>tasks</module>
+        <module>todo</module>
         <module>ui</module>
         <!-- <module>wicket</module> -->
         <!-- <module>wiki</module> -->
