@@ -44,7 +44,7 @@
         <!-- <module>remoting</module> -->
         <!-- <module>restbay</module> -->
         <module>rss</module>
-        <!-- <module>seambay</module> -->
+        <module>seambay</module>
         <!-- <module>seamdiscs</module> -->
         <module>seampay</module>
         <module>seamspace</module>
@@ -645,6 +645,19 @@
                                     <property>
                                         <name>openid.password</name>
                                         <value>${openid.password}</value>
+                                    </property>
+                                    <!-- WebDriver specific properties -->
+                                    <property>
+                                        <name>browser</name>
+                                        <value>${selenium.browser}</value>
+                                    </property>
+                                    <property>
+                                        <name>server.url</name>
+                                        <value>${selenium.browser.url}</value>
+                                    </property>
+                                    <property>
+                                        <name>context.path</name>
+                                        <value>${example.context.path}</value>
                                     </property>
                                 </systemProperties>
                             </configuration>
