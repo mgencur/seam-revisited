@@ -38,7 +38,6 @@
         <module>nestedbooking</module>
         <module>numberguess</module>
         <module>openid</module>
-        <!-- <module>portal</module> -->
         <module>quartz</module>
         <module>registration</module>
         <!-- <module>remoting</module> -->
