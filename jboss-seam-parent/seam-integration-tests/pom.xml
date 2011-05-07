@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>seam-integration-tests</artifactId>
-	<version>2.3-SNAPSHOT</version>
-	<name>seam-integration-tests</name>
+	<name>Seam Integration Tests</name>
+	
 	<properties>
 	</properties>
 

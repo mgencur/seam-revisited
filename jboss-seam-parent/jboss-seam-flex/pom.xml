@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>jboss-seam-parent</artifactId>
 		<groupId>org.jboss.seam</groupId>
@@ -7,30 +7,27 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jboss.seam</groupId>
+	<artifactId>jboss-seam-flex</artifactId>
+	<name>Seam Flex</name>
 
-  <groupId>org.jboss.seam</groupId>
-  <artifactId>jboss-seam-flex</artifactId>
-  <name>Flex</name>
-  <version>${version.seam}</version>
-  <packaging>jar</packaging>
-
-  <dependencies>
-	    <dependency>
-	          <groupId>com.adobe.blazeds</groupId>
-		  <artifactId>blazeds-common</artifactId>
-            </dependency>
-	    <dependency>
-	          <groupId>com.adobe.blazeds</groupId>
-		  <artifactId>blazeds-core</artifactId>
-            </dependency>
-	    <dependency>
-	          <groupId>com.adobe.blazeds</groupId>
-		  <artifactId>blazeds-remoting</artifactId>
-            </dependency>
-	    <dependency>
-	          <groupId>com.adobe.blazeds</groupId>
-		  <artifactId>blazeds-proxy</artifactId>
-            </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-remoting</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.blazeds</groupId>
+			<artifactId>blazeds-proxy</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.seam</groupId>
@@ -59,12 +56,12 @@
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>el-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 	</dependencies>
 </project>

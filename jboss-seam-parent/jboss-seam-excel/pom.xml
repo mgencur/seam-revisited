@@ -10,11 +10,8 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-excel</artifactId>
-	<version>${version.seam}</version>
 	<packaging>jar</packaging>
-
-	<name>Excel</name>
-	<url>http://maven.apache.org</url>
+	<name>Seam Excel</name>
 
 	<dependencies>
 		<dependency>

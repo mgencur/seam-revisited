@@ -7,10 +7,9 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-remoting</artifactId>
-	<name>Remoting</name>
+	<name>Seam Remoting</name>
 	
 	
 	<dependencies>

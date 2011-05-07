@@ -5,8 +5,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.seam</groupId>
    <artifactId>jboss-seam-gen</artifactId>
-   <name>Gen</name>
-   <version>${version.seam}</version>
+   <name>Seam Generator</name>
    <packaging>jar</packaging>
    <parent>
       <groupId>org.jboss.seam</groupId>

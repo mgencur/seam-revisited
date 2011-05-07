@@ -9,9 +9,7 @@
 	</parent>
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-jul</artifactId>
-	<name>JUL</name>
-	<version>${version.seam}</version>
-	<packaging>jar</packaging>
+	<name>Seam JUL</name>
 
 	<dependencies>
 		<dependency>
