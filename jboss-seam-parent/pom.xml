@@ -1491,6 +1491,18 @@
                 <artifactId>icefaces-facelets</artifactId>
                 <version>1.8.2</version>
             </dependency>
+            
+            <dependency>
+                <groupId>org.apache.myfaces.trinidad</groupId>
+                <artifactId>trinidad-api</artifactId>
+                <version>1.2.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.myfaces.trinidad</groupId>
+                <artifactId>trinidad-impl</artifactId>
+                <version>1.2.5</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.codehaus.jettison</groupId>

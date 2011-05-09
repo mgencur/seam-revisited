@@ -45,7 +45,7 @@
         <!-- <module>restbay</module> -->
         <module>rss</module>
         <module>seambay</module>
-        <!-- <module>seamdiscs</module> -->
+        <module>seamdiscs</module>
         <module>seampay</module>
         <module>seamspace</module>
         <!-- <module>spring</module> -->
