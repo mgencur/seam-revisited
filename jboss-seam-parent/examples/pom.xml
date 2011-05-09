@@ -42,7 +42,7 @@
         <module>quartz</module>
         <module>registration</module>
         <!-- <module>remoting</module> -->
-        <!-- <module>restbay</module> -->
+        <module>restbay</module>
         <module>rss</module>
         <module>seambay</module>
         <module>seamdiscs</module>
