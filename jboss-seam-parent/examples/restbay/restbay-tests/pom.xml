@@ -145,7 +145,7 @@
                         <additionalClasspathElement>${basedir}/../restbay-web/src/main/webapp</additionalClasspathElement>
                     </additionalClasspathElements>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources-unit/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources-integration/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
