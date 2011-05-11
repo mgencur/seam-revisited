@@ -32,7 +32,7 @@
         <!-- <module>jpa</module> -->
         <!-- <module>mail</module> -->
         <module>messages</module>
-        <!-- <module>metawidget/dvdstore</module> -->
+        <module>metawidget/dvdstore</module>
         <!-- <module>metawidget/booking</module> -->
         <!-- <module>metawidget/groovybooking</module> -->
         <module>nestedbooking</module>
