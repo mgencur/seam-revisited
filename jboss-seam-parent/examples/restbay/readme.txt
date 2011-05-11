@@ -17,3 +17,5 @@ To deploy the example to JBoss AS, follow these steps:
     mvn jboss:hard-deploy
 
 * Open this URL in a web browser: http://localhost:8080/seam-restbay
+
+Note: this example doesn't have functional tests, because all functionality is verified in integration tests
