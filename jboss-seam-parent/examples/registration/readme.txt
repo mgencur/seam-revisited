@@ -16,6 +16,8 @@ To deploy the example to JBossAS 4, JBossAS 5 or JBossAS 6, follow these steps:
 
     mvn jboss:hard-deploy
 
+* Open this URL in a web browser: http://localhost:8080/seam-registration
+
 To deploy the example to Tomcat with Embedded JBoss, follow these steps:
 
 * In the example root directory run:
@@ -23,3 +25,5 @@ To deploy the example to Tomcat with Embedded JBoss, follow these steps:
     mvn clean package -Ptomcat
 
 * Deploy the resulting war from registration-web/target directory to Tomcat manually.
+
+* Open this URL in a web browser: http://localhost:8080/jboss-seam-registration

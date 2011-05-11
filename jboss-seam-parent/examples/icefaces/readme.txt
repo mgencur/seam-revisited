@@ -4,8 +4,6 @@ Seam IceFaces Example
 This example demonstrates integration with IceFaces. It runs on JBoss AS as an
 EAR.
 
-example.name=icefaces
-
 To deploy the example to JBoss AS, follow these steps:
 
 * In the example root directory run:
@@ -17,6 +15,8 @@ To deploy the example to JBoss AS, follow these steps:
 * In the icefaces-ear directory run:
 
     mvn jboss:hard-deploy
+
+* Open this URL in a web browser: http://localhost:8080/seam-icefaces
 
 To run functional tests for the example on JBoss AS 5 or 6, run:
 

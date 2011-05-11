@@ -4,8 +4,6 @@ Seam Seampay Example
 This example shows Seam's EJB3 timer support. It runs on JBoss AS as an EAR
 and Tomcat with Embedded JBoss as a WAR.
 
-example.name=seampay
-
 To deploy the example to JBoss AS, follow these steps:
 
 * In the example root directory, run:
