@@ -10,3 +10,6 @@
 # maven build results
 target
 test-output
+
+#eclipse output
+bin
