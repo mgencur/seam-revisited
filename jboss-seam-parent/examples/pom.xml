@@ -52,7 +52,7 @@
         <module>tasks</module>
         <module>todo</module>
         <module>ui</module>
-        <!-- <module>wicket</module> -->
+        <module>wicket</module>
         <!-- <module>wiki</module> -->
     </modules>
 
