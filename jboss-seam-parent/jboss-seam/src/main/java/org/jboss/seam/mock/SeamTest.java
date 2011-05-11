@@ -39,16 +39,15 @@ public class SeamTest extends AbstractSeamTest
    }
    
    /**
-   * Call this method within a test method to end the previous
-   * mock session and start another one. 
-   */
+    * Call this method within a test method to end the previous
+    * mock session and start another one. 
+    */
    public void reset()
    {
-     end();
-     begin();
+      end();
+      begin();
    }
-      
-
+   
    @Override
    @BeforeClass
    public void setupClass() throws Exception

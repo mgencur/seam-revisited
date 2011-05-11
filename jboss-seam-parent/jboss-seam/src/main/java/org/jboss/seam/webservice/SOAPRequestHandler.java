@@ -111,7 +111,7 @@ public class SOAPRequestHandler implements SOAPHandler
                SOAPElement element = header.addChildElement(CIDQN);
                element.addTextNode(conversationId);
                smc.getMessage().saveChanges();               
-            }    
+            }            
             else
             {
                SOAPEnvelope envelope = smc.getMessage().getSOAPPart().getEnvelope();
