@@ -19,6 +19,7 @@ import org.testng.annotations.BeforeSuite;
  * @author Gavin King
  * @author <a href="mailto:theute@jboss.org">Thomas Heute</a>
  * @author Mike Youngstrom
+ * @author <a href="http://community.jboss.org/people/jharting">Jozef Hartinger</a>
  */
 public class SeamTest extends AbstractSeamTest
 {
@@ -37,6 +38,17 @@ public class SeamTest extends AbstractSeamTest
       super.end();
    }
    
+   /**
+   * Call this method within a test method to end the previous
+   * mock session and start another one. 
+   */
+   public void reset()
+   {
+     end();
+     begin();
+   }
+      
+
    @Override
    @BeforeClass
    public void setupClass() throws Exception
