@@ -4,8 +4,6 @@ Seam NestedBooking Example
 This example demonstrates the use of Seam nested conversations and runs 
 on JBoss AS as an EAR.
 
-example.name=nestedbooking
-
 To deploy the example to JBoss AS, follow these steps:
 
 * In the example root directory run:
@@ -17,4 +15,6 @@ To deploy the example to JBoss AS, follow these steps:
 * In the nestedbooking-ear directory run:
 
     mvn jboss:hard-deploy
+
+* Open this URL in a web browser: http://localhost:8080/seam-nestedbooking
 

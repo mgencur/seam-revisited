@@ -4,8 +4,6 @@ Seam Seamspace Example
 This example demonstrates Seam Security. It runs on JBoss AS as an EAR and
 Tomcat with Embedded JBoss as a WAR.
 
-example.name=seamspace
-
 To deploy the example to JBoss AS, follow these steps:
 
 * In the example root directory, run:

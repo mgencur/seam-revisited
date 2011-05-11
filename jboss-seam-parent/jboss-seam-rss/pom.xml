@@ -10,15 +10,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-rss</artifactId>
-	<version>${version.seam}</version>
-	<packaging>jar</packaging>
-
-	<name>RSS</name>
-	<url>http://maven.apache.org</url>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<name>Seam RSS</name>
 
 	<dependencies>
 		<dependency>

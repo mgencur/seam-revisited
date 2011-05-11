@@ -1,7 +1,7 @@
 # ignore eclipse files
 .project
 .classpath
-.settings
+*.settings*
 *.ipr
 .idea
 *.iws
@@ -11,5 +11,5 @@
 target
 test-output
 
-#work projects
-integration-tests
+#eclipse output
+bin

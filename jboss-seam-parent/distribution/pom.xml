@@ -8,11 +8,9 @@
 		<version>2.3-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>distribution</artifactId>
 	<name>Distribution</name>
-	<version>${version.seam}</version>
 	<packaging>pom</packaging>
 
 	<build>	

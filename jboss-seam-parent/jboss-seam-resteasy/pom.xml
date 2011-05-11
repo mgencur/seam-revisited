@@ -10,9 +10,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-resteasy</artifactId>
-	<name>Resteasy</name>
-	<version>${version.seam}</version>
-	<packaging>jar</packaging>
+	<name>Seam Resteasy</name>
 
 	<dependencies>
 		<dependency>

@@ -8,13 +8,10 @@
 		<version>2.3-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam</artifactId>
-<!--	<version>${version.seam}</version> -->
 	<packaging>ejb</packaging>
-
-	<name>Core</name>
+	<name>Seam Core</name>
 	<description>Seam core module for Seam framework</description>
 
 	<build>

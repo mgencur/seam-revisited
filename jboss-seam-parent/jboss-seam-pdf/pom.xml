@@ -10,9 +10,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-pdf</artifactId>
-	<name>PDF</name>
-	<version>${version.seam}</version>
-	<packaging>jar</packaging>
+	<name>Seam PDF</name>
 
 	<dependencies>
 		<dependency>

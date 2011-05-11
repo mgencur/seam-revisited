@@ -26,7 +26,7 @@ public class MessagingTest
     {
         // need to delay a bit to make sure the messaging system is running
         // really only needed when running this test in isolation
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
     
     @Test(dependsOnMethods={"delayForStartup"})

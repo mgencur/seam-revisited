@@ -11,6 +11,5 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.seam</groupId>
     <artifactId>jboss-embedded-bootstrap</artifactId>
-    <packaging>jar</packaging>
-
+    <name>JBoss Embedded Bootstrap</name>
 </project>

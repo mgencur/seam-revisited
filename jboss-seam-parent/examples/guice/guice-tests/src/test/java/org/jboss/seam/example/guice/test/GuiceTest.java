@@ -58,7 +58,7 @@ public class GuiceTest extends SeamTest
       }.run();
    }
 
-  //TODO: solve the issue with @Test
+   @Test
    public void testGuiceDisinjection() throws Exception
    {
       new ComponentTest()

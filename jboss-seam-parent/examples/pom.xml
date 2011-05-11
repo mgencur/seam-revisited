@@ -32,7 +32,7 @@
         <!-- <module>jpa</module> -->
         <!-- <module>mail</module> -->
         <module>messages</module>
-        <!-- <module>metawidget/dvdstore</module> -->
+        <module>metawidget/dvdstore</module>
         <!-- <module>metawidget/booking</module> -->
         <!-- <module>metawidget/groovybooking</module> -->
         <module>nestedbooking</module>
@@ -41,17 +41,17 @@
         <module>quartz</module>
         <module>registration</module>
         <!-- <module>remoting</module> -->
-        <!-- <module>restbay</module> -->
+        <module>restbay</module>
         <module>rss</module>
         <module>seambay</module>
-        <!-- <module>seamdiscs</module> -->
+        <module>seamdiscs</module>
         <module>seampay</module>
         <module>seamspace</module>
         <!-- <module>spring</module> -->
         <module>tasks</module>
         <module>todo</module>
         <module>ui</module>
-        <!-- <module>wicket</module> -->
+        <module>wicket</module>
         <!-- <module>wiki</module> -->
     </modules>
 

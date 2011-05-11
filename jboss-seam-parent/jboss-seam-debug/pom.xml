@@ -7,12 +7,9 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-debug</artifactId>
-	<name>Debug</name>
-	<version>${version.seam}</version>
-	<packaging>jar</packaging>
+	<name>Seam Debug</name>
 
 	<dependencies>
 

@@ -4,7 +4,7 @@
 
 	<groupId>org.jboss.seam</groupId>
 	<artifactId>jboss-seam-parent</artifactId>
-	<name>parent</name>
+	<name>Seam Parent</name>
 	<version>2.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -34,13 +34,14 @@
 		<!-- General properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.compiler.version>1.5</java.compiler.version>
 		<seam.docbook.version>1.1.0.GA</seam.docbook.version>
 		<jbossorg.docbook.version>1.1.0</jbossorg.docbook.version>
 		<pdf.name>${project.artifactId}.pdf</pdf.name>
 
 		<!-- Version string properties -->
 		<version.richfaces>3.3.3.Final</version.richfaces>
-		<version.wicket>1.3.5.jboss1</version.wicket>
+		<version.wicket>1.4.14</version.wicket>
 		<version.drools>5.0.1</version.drools>
 		<version.testng>5.10</version.testng>
 		<version.resteasy>2.0-beta-2</version.resteasy>
@@ -54,7 +55,7 @@
 		<jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
 		<jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-		<dist.dir>~/tmp/jboss-seam-${version.seam}</dist.dir>
+		<dist.dir>${project.build.directory}/jboss-seam-${version.seam}</dist.dir>
 	</properties>
 
 
@@ -1491,6 +1492,18 @@
                 <artifactId>icefaces-facelets</artifactId>
                 <version>1.8.2</version>
             </dependency>
+            
+            <dependency>
+                <groupId>org.apache.myfaces.trinidad</groupId>
+                <artifactId>trinidad-api</artifactId>
+                <version>1.2.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.myfaces.trinidad</groupId>
+                <artifactId>trinidad-impl</artifactId>
+                <version>1.2.5</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.codehaus.jettison</groupId>
@@ -1502,6 +1515,18 @@
                         <artifactId>stax-api</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.metawidget</groupId>
+                <artifactId>metawidget-backend</artifactId>
+                <version>0.95</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.metawidget</groupId>
+                <artifactId>metawidget-frontend</artifactId>
+                <version>0.95</version>
             </dependency>
             
 		</dependencies>
@@ -1700,10 +1725,11 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>2.3.2</version>
 					<configuration>
-						<source>1.5</source>
-						<target>1.5</target>
+						<source>${java.compiler.version}</source>
+						<target>${java.compiler.version}</target>
 				        <optimize>true</optimize>
-				        <!-- javac doesn't compile all package-info.java -->
+				        <!-- javac doesn't compile all package-info.java, 
+				        therefore use eclipse compiler -->
 				        <compilerId>eclipse</compilerId>
 					</configuration>
 					<dependencies>
@@ -1805,12 +1831,26 @@
 		<module>jboss-seam-ioc</module>
 		<module>jboss-seam-jul</module>
 		<module>jboss-seam</module>
-		<module>seam-reference-guide</module>
-		<module>distribution</module>
 		<module>jboss-embedded-bootstrap</module>
 		<module>seam-integration-tests</module>
 <!--		<module>examples</module>-->
 	</modules>
+	
+	<profiles>
+	   <!-- Profile for generating Seam reference documentation  -->
+	   <profile>
+	       <id>doc</id>
+	       <modules>
+	           <module>seam-reference-guide</module>
+	       </modules>
+	   </profile>
+	   <profile>
+           <id>distribution</id>
+           <modules>
+               <module>distribution</module>
+           </modules>
+       </profile>
+	</profiles>
 
 
 </project>
