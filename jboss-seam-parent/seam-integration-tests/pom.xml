@@ -147,4 +147,67 @@
 			<classifier>jdk15</classifier>
 		</dependency>
 	</dependencies>
+    
+    <profiles>
+        <profile>
+            <id>code-coverage</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>default-test</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.maven.plugin</groupId>
+                        <artifactId>emma4it-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>merge</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                   <goal>merge</goal>
+                                </goals>
+                                <configuration>
+                                   <searchPath>${basedir}/../</searchPath>
+                                </configuration>
+                            </execution>
+                            <execution>
+                               <id>report</id>
+                               <phase>verify</phase>
+                               <goals>
+                                  <goal>report</goal>
+                               </goals>
+                               <configuration>
+                                  <sourceSets>
+                                     <sourceSet>
+                                        <directory>${basedir}/../jboss-seam/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-debug/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-excel/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-flex/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-gen/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-ioc/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-jul/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-mail/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-pdf/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-remoting/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-resteasy/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-rss/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-ui/src/main/java</directory>
+                                        <directory>${basedir}/../jboss-seam-wicket/src/main/java</directory>
+                                     </sourceSet>
+                                  </sourceSets>
+                               </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
