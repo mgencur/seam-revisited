@@ -227,7 +227,7 @@ public class FailoverTest extends SeamSeleniumTest
     
     private void deleteCookies(SeamSelenium browser)
     {
-       browser.deleteCookie("JSESSIONID", "path=" + CONTEXT_PATH + ", domain=localhost, recurse=true");
+       browser.deleteAllVisibleCookies();
     }     
    
     public boolean login(SeamSelenium browser) 

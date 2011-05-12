@@ -18,7 +18,7 @@ To deploy the example to JBossAS, follow these steps:
 
 * Set JBOSS_HOME environment property.
 
-* In the dvdstore-ear directory run:
+* In the booking-ear directory run:
 
     mvn jboss:hard-deploy
 
