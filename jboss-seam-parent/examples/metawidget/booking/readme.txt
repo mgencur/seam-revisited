@@ -8,7 +8,7 @@ with JBoss Embedded as a WAR.
 
 A majority of source files in this project comes from non-metawidget Booking example
 in the distribution. Metawidget source files are placed under src/metawidget 
-subdirectories in booking-ejb and dvdstore-web submodules.
+subdirectories in booking-ejb and booking-web submodules.
 
 To deploy the example to JBossAS, follow these steps:
 
