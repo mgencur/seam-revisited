@@ -33,8 +33,8 @@
         <!-- <module>mail</module> -->
         <module>messages</module>
         <module>metawidget/dvdstore</module>
-        <!-- <module>metawidget/booking</module> -->
-        <!-- <module>metawidget/groovybooking</module> -->
+        <module>metawidget/booking</module> -->
+        <module>metawidget/groovybooking</module>
         <module>nestedbooking</module>
         <module>numberguess</module>
         <module>openid</module>

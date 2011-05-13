@@ -1530,6 +1530,12 @@
                 <version>0.95</version>
             </dependency>
             
+            <dependency>
+                <groupId>org.metawidget</groupId>
+                <artifactId>metawidget</artifactId>
+                <version>0.95</version>
+            </dependency>
+            
 		</dependencies>
 	</dependencyManagement>
 
