@@ -40,7 +40,11 @@
         <module>openid</module>
         <module>quartz</module>
         <module>registration</module>
-        <!-- <module>remoting</module> -->
+        <module>remoting/chatroom</module>
+        <!-- <module>remoting/gwt</module> -->
+        <!-- <module>remoting/helloworld</module> -->
+        <!-- <module>remoting/poker</module> -->
+        <!-- <module>remoting/progressbar</module> -->
         <module>restbay</module>
         <module>rss</module>
         <module>seambay</module>

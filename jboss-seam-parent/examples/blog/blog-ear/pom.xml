@@ -151,6 +151,7 @@
                             <jbossHome>${jboss.home}</jbossHome>
                             <serverName>${jboss.domain}</serverName>
                             <fileNames>
+                                <param>src/main/resources/blog-ds.xml</param>
                                 <directory>${project.build.directory}/${project.build.finalName}-exploded/${project.build.finalName}.ear</directory>
                             </fileNames>
                         </configuration>
