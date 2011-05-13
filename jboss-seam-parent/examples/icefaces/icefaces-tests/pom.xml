@@ -157,7 +157,8 @@
             <id>ftest-jbossas</id>
             <properties>
                 <example.context.path>/seam-icefaces</example.context.path>
-                <testng.suite>testng-jboss5.xml</testng.suite>
+                <jbossas.version>5</jbossas.version>
+                <testng.suite>testng-jboss${jbossas.version}.xml</testng.suite>
             </properties>
             <build>
                 <plugins>

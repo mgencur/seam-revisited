@@ -24,4 +24,4 @@ To run functional tests for the example on JBoss AS 5 or 6, run:
 
 To run functional tests for the example on JBoss AS 4, run:
 
-    mvn verify -Pftest-jbossas -Dtestng.suite=testng-jboss4.xml
+    mvn verify -Pftest-jbossas -Djbossas.version=4
