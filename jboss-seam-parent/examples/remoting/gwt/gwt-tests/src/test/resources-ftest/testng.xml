@@ -15,11 +15,11 @@
     Boston, MA 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 --> 
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
-<suite name="Chatroom example" verbose="2" parallel="false">
-    <test name="chatroom_tests_jboss4">
+<suite name="Gwt example" verbose="2" parallel="false">
+    <test name="remoting_gwt_tests">
         <parameter name="PROPERTY_FILE" value="" />
         <classes>
-            <class name="org.jboss.seam.example.remoting.chatroom.test.selenium.SeleniumChatroomTest" />
+            <class name="org.jboss.seam.example.remoting.gwt.test.selenium.GwtTest" />
         </classes>
     </test>
 </suite>
