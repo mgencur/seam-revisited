@@ -10,7 +10,7 @@
                  http://jboss.com/products/seam/transaction http://jboss.com/products/seam/transaction-2.2.xsd
                  http://jboss.com/products/seam/components http://jboss.com/products/seam/components-2.2.xsd">
 
-    <core:init jndi-pattern="java:comp/env/jboss-seam-jee5/#{ejbName}/local" debug="true"/>    
+    <core:init jndi-pattern="java:comp/env/seam-jee5-booking/#{ejbName}/local" debug="true"/>    
 
     <transaction:ejb-transaction/>
 
