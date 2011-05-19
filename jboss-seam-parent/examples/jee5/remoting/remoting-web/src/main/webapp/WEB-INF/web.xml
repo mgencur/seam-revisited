@@ -58,7 +58,7 @@
   <!-- JEE5 EJB3 names -->
   
   <ejb-local-ref>              
-    <ejb-ref-name>jboss-seam-remoting/HelloAction/local</ejb-ref-name>
+    <ejb-ref-name>seam-jee5-remoting/HelloAction/local</ejb-ref-name>
     <ejb-ref-type>Session</ejb-ref-type>
     <local>org.jboss.seam.example.remoting.HelloLocal</local>               
   </ejb-local-ref>	  

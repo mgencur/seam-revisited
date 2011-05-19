@@ -27,8 +27,8 @@
         <!-- <module>hibernate</module> -->
         <module>icefaces</module>
         <module>itext</module>
-        <!-- <module>jee5/remoting</module> -->
         <module>jee5/booking</module>
+        <module>jee5/remoting</module>
         <!-- <module>jpa</module> -->
         <!-- <module>mail</module> -->
         <module>messages</module>
