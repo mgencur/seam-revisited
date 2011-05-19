@@ -227,6 +227,95 @@
             </dependencies>
         </profile>
         <profile>
+            <id>oc4j</id>
+            <dependencies>
+                <!-- jbpm dependencies -->
+                <dependency>
+                     <groupId>org.jbpm</groupId>
+                     <artifactId>jbpm-jpdl</artifactId>
+                </dependency>
+                <!-- drools dependencies -->
+                <dependency>
+                    <groupId>org.drools</groupId>
+                    <artifactId>drools-core</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>joda-time</groupId>
+                            <artifactId>joda-time</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.drools</groupId>
+                    <artifactId>drools-compiler</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.drools</groupId>
+                    <artifactId>drools-decisiontables</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.drools</groupId>
+                    <artifactId>drools-templates</artifactId>
+                </dependency>
+                <!-- quartz dependencies -->
+                <dependency>
+                    <groupId>quartz</groupId>
+                    <artifactId>quartz</artifactId>
+                </dependency>
+                <!-- search dependencies -->
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-search</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-core</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>ejb3-persistence</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>javax.transaction</groupId>
+                            <artifactId>jta</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>hsqldb</groupId>
+                            <artifactId>hsqldb</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-core</artifactId>
+                </dependency>
+                <!-- dbunit dependency -->
+                <dependency>
+                    <groupId>org.dbunit</groupId>
+                    <artifactId>dbunit</artifactId>
+                </dependency>
+                <!-- embedded api dependency -->
+                <dependency>
+                    <groupId>org.jboss.seam.embedded</groupId>
+                    <artifactId>jboss-embedded-api</artifactId>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.jboss.microcontainer</groupId>
+                            <artifactId>jboss-deployers-client-spi</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.jboss.microcontainer</groupId>
+                            <artifactId>jboss-deployers-core-spi</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>net.sourceforge.jexcelapi</groupId>
+                    <artifactId>jxl</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
             <id>exploded</id>
             <properties>
                 <example.name>booking</example.name>
