@@ -2,7 +2,8 @@ Seam Hibernate Example
 ======================
 
 This is the Hotel Booking example implemented in Seam and Hibernate POJOs.
-This application runs on JBoss AS 4.2, 5 and 6, Tomcat with JBoss Embedded.
+This application runs on JBoss AS 4.2, 5 and 6, Tomcat with JBoss Embedded
+and Glassfish V2.
 
 To deploy the example to JBossAS 5 or 6, follow these steps:
 
@@ -16,15 +17,14 @@ To deploy the example to JBossAS 5 or 6, follow these steps:
 
     mvn jboss:hard-deploy
 
-When deploying to JBossAS 4.2, use a -Pjbossas42 maven profile to package the 
-application.
+The following is a list of profiles which you should use to build the 
+application for various application servers.
 
-To deploy the example to Tomcat with Embedded JBoss, follow these steps:
+JBoss AS 4.2                ->  -Pjbossas42  (i.e. mvn clean package -Pjbossas42)
+Glassfish V2                ->  -Pglassfish2
+Tomcat with JBoss Embedded  ->  -Ptomcat
 
-* In the example root directory run:
-
-    mvn clean package -Ptomcat
-
-* Deploy the resulting war from hibernate-web/target directory to Tomcat manually.
+Furthermore, when you're targeting a different application server than 
+JBossAS 5 or 6, you have to deploy the application manually.
 
 * Open this URL in a web browser: http://localhost:8080/jboss-seam-hibernate
